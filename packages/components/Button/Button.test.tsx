@@ -1,6 +1,7 @@
 import {describe, it, expect, vi } from 'vitest'
 import {mount} from '@vue/test-utils'
-import { Button } from './index.ts';
+import {  Button } from './index';
+import { getPrefixCls } from "@healwrap/hp-ui-utils";
 
 describe("Button.vue", () => {
   // Props: type
@@ -10,7 +11,7 @@ describe("Button.vue", () => {
       const wrapper = mount(Button, {
         props: { type: type as any },
       });
-      expect(wrapper.classes()).toContain(`er-button--${type}`);
+      expect(wrapper.classes()).toContain(`${getPrefixCls('button')}--${type}`);
     });
   });
 
@@ -21,7 +22,7 @@ describe("Button.vue", () => {
       const wrapper = mount(Button, {
         props: { size: size as any },
       });
-      expect(wrapper.classes()).toContain(`er-button--${size}`);
+      expect(wrapper.classes()).toContain(`${getPrefixCls('button')}--${size}`);
     });
   });
 

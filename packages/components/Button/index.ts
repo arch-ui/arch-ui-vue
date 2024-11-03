@@ -1,4 +1,6 @@
-import Button from './Button.vue';
+import _Button from './Button.vue';
 import { withInstall } from '@healwrap/hp-ui-utils';
 
-export const HpButton = withInstall(Button);
+export const HpButton = withInstall(_Button);
+
+export * from './type.d.ts'

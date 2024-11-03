@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "pnpm --filter @healwrap/hp-ui-playground dev",
     "docs:dev": "pnpm --filter @healwrap/hp-ui-docs dev",
+    "play:dev": "pnpm --filter @healwrap/hp-ui-playground dev",
     "test": "cross-env NODE_ENV=test pnpm --filter @healwrap/hp-ui-components test"
   },
   "keywords": [],
