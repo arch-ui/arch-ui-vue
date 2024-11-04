@@ -3,4 +3,4 @@ import { withInstall } from '@healwrap/hp-ui-utils';
 
 export const HpButton = withInstall(_Button);
 
-export * from './type.d.ts'
+export * from './type.d'

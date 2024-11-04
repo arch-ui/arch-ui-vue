@@ -1,23 +1,36 @@
 <script setup lang="ts">
-import type { ButtonProps } from './type';
+import type { ButtonProps, ButtonEmits, ButtonInstance } from './type';
 import { getPrefixCls, getPrefixPascal } from '@healwrap/hp-ui-utils';
+import { throttle } from 'lodash-es';
 import { ref } from 'vue';
 
+const compName = 'button'
+
 defineOptions({
-  name: getPrefixPascal('button'),
+  name: getPrefixPascal(compName),
 });
 
-const compPrefix = getPrefixCls('button');
+const compPrefix = getPrefixCls(compName);
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   tag: 'button',
   nativeType: 'button',
-  type: 'primary'
+  type: 'primary',
 });
+
+const emit = defineEmits<ButtonEmits>();
 
 const slots = defineSlots();
 
-const _ref = ref<HTMLElement | null>(null);
+const _ref = ref<HTMLButtonElement | void>();
+
+const handleBtnClick = (e: MouseEvent) => emit('click', e);
+
+const handleBtnClickThrottle = throttle(handleBtnClick, props.throttleDuration);
+
+defineExpose<ButtonInstance>({
+  ref: _ref,
+});
 </script>
 
 <template>
@@ -27,6 +40,7 @@ const _ref = ref<HTMLElement | null>(null);
     :type="tag === 'button' ? nativeType : 0"
     :disabled="disabled || loading ? true : 0"
     :class="{
+      [`${compPrefix}`]: compPrefix,
       [`${compPrefix}--${type}`]: type,
       [`${compPrefix}--${size}`]: size,
       'is-plain': plain,
@@ -35,9 +49,12 @@ const _ref = ref<HTMLElement | null>(null);
       'is-disabled': disabled,
       'is-loading': loading,
     }"
+    @click="(e: MouseEvent) => (useThrottle ? handleBtnClickThrottle(e) : handleBtnClick(e))"
   >
     <slot></slot>
   </component>
 </template>
 
-<style src="./style.css"></style>
+<style>
+@import './style.css';
+</style>

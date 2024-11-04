@@ -1,5 +1,6 @@
 import { makeInstaller } from '@healwrap/hp-ui-utils';
 import components from './components';
+import '@healwrap/hp-ui-theme/index.css';
 
 const installer = makeInstaller(components);
 

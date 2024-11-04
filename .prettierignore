@@ -5,3 +5,4 @@ components/index.vue
 node_modules
 .idea
 .vscode
+*.css

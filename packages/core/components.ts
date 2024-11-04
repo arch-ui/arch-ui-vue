@@ -1,4 +1,4 @@
 import { HpButton } from '@healwrap/hp-ui-components';
-import type {} from 'vue';
+import type { Plugin } from 'vue';
 
-export default { HpButton } as Plugin[];
+export default [HpButton] as Plugin[];

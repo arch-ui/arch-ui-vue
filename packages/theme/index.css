@@ -1,67 +1,67 @@
-@import "./reset.css";
+@import './reset.css';
 
 :root {
-    /* colors */
-    --hp-color-white: #ffffff;
-    --hp-color-black: #000000;
-    --colors: (primary: #409eff, success: #67c23a, warning: #e6a23c, danger: #f56c6c, info: #909399);
-    --hp-bg-color: #ffffff;
-    --hp-bg-color-page: #f2f3f5;
-    --hp-bg-color-overlay: #ffffff;
-    --hp-text-color-primary: #303133;
-    --hp-text-color-regular: #606266;
-    --hp-text-color-secondary: #909399;
-    --hp-text-color-placeholder: #a8abb2;
-    --hp-text-color-disabled: #c0c4cc;
-    --hp-border-color: #dcdfe6;
-    --hp-border-color-light: #e4e7ed;
-    --hp-border-color-lighter: #ebeef5;
-    --hp-border-color-extra-light: #f2f6fc;
-    --hp-border-color-dark: #d4d7de;
-    --hp-border-color-darker: #cdd0d6;
-    --hp-fill-color: #f0f2f5;
-    --hp-fill-color-light: #f5f7fa;
-    --hp-fill-color-lighter: #fafafa;
-    --hp-fill-color-extra-light: #fafcff;
-    --hp-fill-color-dark: #ebedf0;
-    --hp-fill-color-darker: #e6e8eb;
-    --hp-fill-color-blank: #ffffff;
-
-    @each $val, $color in var(--colors) {
-        --hp-color-$(val): $(color);
-        @for $i from 3 to 9 {
-            --hp-color-$(val)-light-$(i): mix(#fff, $(color), 0.$(i));
-        }
-        --hp-color-$(val)-dark-2: mix(#000, $(color), 0.2);
+  /* colors */
+  --hp-color-white: #ffffff;
+  --hp-color-black: #000000;
+  --colors: (primary: #409eff, success: #67c23a, warning: #e6a23c, danger: #f56c6c, info: #909399);
+  --hp-bg-color: #ffffff;
+  --hp-bg-color-page: #f2f3f5;
+  --hp-bg-color-overlay: #ffffff;
+  --hp-text-color-primary: #303133;
+  --hp-text-color-regular: #606266;
+  --hp-text-color-secondary: #909399;
+  --hp-text-color-placeholder: #a8abb2;
+  --hp-text-color-disabled: #c0c4cc;
+  --hp-border-color: #dcdfe6;
+  --hp-border-color-light: #e4e7ed;
+  --hp-border-color-lighter: #ebeef5;
+  --hp-border-color-extra-light: #f2f6fc;
+  --hp-border-color-dark: #d4d7de;
+  --hp-border-color-darker: #cdd0d6;
+  --hp-fill-color: #f0f2f5;
+  --hp-fill-color-light: #f5f7fa;
+  --hp-fill-color-lighter: #fafafa;
+  --hp-fill-color-extra-light: #fafcff;
+  --hp-fill-color-dark: #ebedf0;
+  --hp-fill-color-darker: #e6e8eb;
+  --hp-fill-color-blank: #ffffff;
+  
+  @each $val, $color in var(--colors) {
+    --hp-color-$(val): $(color);
+    @for $i from 3 to 9 {
+      --hp-color-$(val)-light-$(i): mix(#fff, $(color), 0.$(i));
     }
+    --hp-color-$(val)-dark-2: mix(#000, $(color), 0.2);
+  }
 
-    /* border */
-    --hp-border-width: 1px;
-    --hp-border-style: solid;
-    --hp-border-color-hover: var(--hp-text-color-disabled);
-    --hp-border: var(--hp-border-width) var(--hp-border-style) var(--hp-border-color);
-    --hp-border-radius-base: 4px;
-    --hp-border-radius-small: 2px;
-    --hp-border-radius-round: 20px;
-    --hp-border-radius-circle: 100%;
+  /* border */
+  --hp-border-width: 1px;
+  --hp-border-style: solid;
+  --hp-border-color-hover: var(--hp-text-color-disabled);
+  --hp-border: var(--hp-border-width) var(--hp-border-style) var(--hp-border-color);
+  --hp-border-radius-base: 4px;
+  --hp-border-radius-small: 2px;
+  --hp-border-radius-round: 20px;
+  --hp-border-radius-circle: 100%;
 
-    /*font*/
-    --hp-font-size-extra-large: 20px;
-    --hp-font-size-large: 18px;
-    --hp-font-size-medium: 16px;
-    --hp-font-size-base: 14px;
-    --hp-font-size-small: 13px;
-    --hp-font-size-extra-small: 12px;
-    --hp-font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+  /*font*/
+  --hp-font-size-extra-large: 20px;
+  --hp-font-size-large: 18px;
+  --hp-font-size-medium: 16px;
+  --hp-font-size-base: 14px;
+  --hp-font-size-small: 13px;
+  --hp-font-size-extra-small: 12px;
+  --hp-font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
     'Microsoft YaHei', '\5fae\8f6f\96c5\9ed1', Arial, sans-serif;
-    --hp-font-weight-primary: 500;
+  --hp-font-weight-primary: 500;
 
-    /*disabled*/
-    --hp-disabled-bg-color: var(--hp-fill-color-light);
-    --hp-disabled-text-color: var(--hp-text-color-placeholder);
-    --hp-disabled-border-color: var(--hp-border-color-light);
+  /*disabled*/
+  --hp-disabled-bg-color: var(--hp-fill-color-light);
+  --hp-disabled-text-color: var(--hp-text-color-placeholder);
+  --hp-disabled-border-color: var(--hp-border-color-light);
 
-    /*animation*/
-    --hp-transition-duration: 0.4s;
-    --hp-transition-duration-fast: 0.2s;
+  /*animation*/
+  --hp-transition-duration: 0.4s;
+  --hp-transition-duration-fast: 0.2s;
 }
