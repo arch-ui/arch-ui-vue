@@ -55,6 +55,6 @@ defineExpose<ButtonInstance>({
   </component>
 </template>
 
-<style>
-@import './style.css';
+<style lang="scss">
+@import './style.scss';
 </style>
