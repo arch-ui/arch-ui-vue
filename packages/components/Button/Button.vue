@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { ButtonProps, ButtonEmits, ButtonInstance } from './type';
-import { getPrefixCls, getPrefixPascal } from '@healwrap/hp-ui-utils';
+import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui-utils';
 import { throttle } from 'lodash-es';
 import { ref } from 'vue';
 
-const compName = 'button'
+const compName = 'button';
 
 defineOptions({
   name: getPrefixPascal(compName),

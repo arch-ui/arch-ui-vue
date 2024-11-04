@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "hp-ui"
+  name: "arch-ui"
   text: "类 arco design ui 库"
   tagline: My great project tagline
   actions:

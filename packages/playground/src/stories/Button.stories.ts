@@ -1,13 +1,13 @@
 import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3';
 import { fn } from '@storybook/test';
 
-import { HpButton } from '@healwrap/hp-ui';
+import { AButton } from '@arch-design/arch-ui';
 
-type Story = StoryObj<typeof HpButton> & { argTypes: ArgTypes };
+type Story = StoryObj<typeof AButton> & { argTypes: ArgTypes };
 
-const meta: Meta<typeof HpButton> = {
+const meta: Meta<typeof AButton> = {
   title: 'Example/Button',
-  component: HpButton,
+  component: AButton,
   tags: ['autodocs'],
   argTypes: {
     type: {
@@ -17,6 +17,15 @@ const meta: Meta<typeof HpButton> = {
     size: {
       control: { type: 'select' },
       options: ['large', 'default', 'small', ''],
+    },
+    plain: {
+      control: 'boolean',
+    },
+    circle: {
+      control: 'boolean',
+    },
+    round: {
+      control: 'boolean',
     },
     disabled: {
       control: 'boolean',
@@ -67,13 +76,13 @@ export const Default: Story & { args: { content: string } } = {
     type: 'primary',
     content: 'Button',
   },
-  render: (args) => ({
-    components: { HpButton },
+  render: (args: any) => ({
+    components: { AButton },
     setup() {
       return { args };
     },
     template: container(
-      `<hp-button data-testid="story-test-btn" v-bind="args">{{args.content}}</hp-button>`
+      `<a-button data-testid="story-test-btn" v-bind="args">{{args.content}}</a-button>`
     ),
   }),
 };

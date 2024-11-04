@@ -1,25 +1,25 @@
-.hp-button-group {
-  --hp-button-group-border-color: var(--hp-border-color-lighter);
+.arch-button-group {
+  --arch-button-group-border-color: var(--arch-border-color-lighter);
 }
-.hp-button {
-  --hp-button-font-weight: var(--hp-font-weight-primary);
-  --hp-button-border-color: var(--hp-border-color);
-  --hp-button-bg-color: var(--hp-fill-color-blank);
-  --hp-button-text-color: var(--hp-text-color-regular);
-  --hp-button-disabled-text-color: var(--hp-disabled-text-color);
-  --hp-button-disabled-bg-color: var(--hp-fill-color-blank);
-  --hp-button-disabled-border-color: var(--hp-border-color-light);
-  --hp-button-hover-text-color: var(--hp-color-primary);
-  --hp-button-hover-bg-color: var(--hp-color-primary-light-9);
-  --hp-button-hover-border-color: var(--hp-color-primary-light-7);
-  --hp-button-active-text-color: var(--hp-button-hover-text-color);
-  --hp-button-active-border-color: var(--hp-color-primary);
-  --hp-button-active-bg-color: var(--hp-button-hover-bg-color);
-  --hp-button-outline-color: var(--hp-color-primary-light-5);
-  --hp-button-active-color: var(--hp-text-color-primary);
+.arch-button {
+  --arch-button-font-weight: var(--arch-font-weight-primary);
+  --arch-button-border-color: var(--arch-border-color);
+  --arch-button-bg-color: var(--arch-fill-color-blank);
+  --arch-button-text-color: var(--arch-text-color-regular);
+  --arch-button-disabled-text-color: var(--arch-disabled-text-color);
+  --arch-button-disabled-bg-color: var(--arch-fill-color-blank);
+  --arch-button-disabled-border-color: var(--arch-border-color-light);
+  --arch-button-hover-text-color: var(--arch-color-primary);
+  --arch-button-hover-bg-color: var(--arch-color-primary-light-9);
+  --arch-button-hover-border-color: var(--arch-color-primary-light-7);
+  --arch-button-active-text-color: var(--arch-button-hover-text-color);
+  --arch-button-active-border-color: var(--arch-color-primary);
+  --arch-button-active-bg-color: var(--arch-button-hover-bg-color);
+  --arch-button-outline-color: var(--arch-color-primary-light-5);
+  --arch-button-active-color: var(--arch-text-color-primary);
 }
 
-.hp-button {
+.arch-button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -27,46 +27,47 @@
   height: 32px;
   white-space: nowrap;
   cursor: pointer;
-  color: var(--hp-button-text-color);
+  color: var(--arch-button-text-color);
   text-align: center;
   box-sizing: border-box;
   outline: none;
   transition: 0.1s;
-  font-weight: var(--hp-button-font-weight);
+  font-weight: var(--arch-button-font-weight);
   user-select: none;
   vertical-align: middle;
+  appearance: none;
   -webkit-appearance: none;
-  background-color: var(--hp-button-bg-color);
-  border: var(--hp-border);
-  border-color: var(--hp-button-border-color);
+  background-color: var(--arch-button-bg-color);
+  border: var(--arch-border);
+  border-color: var(--arch-button-border-color);
   padding: 8px 15px;
-  font-size: var(--hp-font-size-base);
-  border-radius: var(--hp-border-radius-base);
+  font-size: var(--arch-font-size-base);
+  border-radius: var(--arch-border-radius-base);
   & + & {
     margin-left: 12px;
   }
   &:hover,
   &:focus {
-    color: var(--hp-button-hover-text-color);
-    border-color: var(--hp-button-hover-border-color);
-    background-color: var(--hp-button-hover-bg-color);
+    color: var(--arch-button-hover-text-color);
+    border-color: var(--arch-button-hover-border-color);
+    background-color: var(--arch-button-hover-bg-color);
     outline: none;
   }
   &:active {
-    color: var(--hp-button-active-text-color);
-    border-color: var(--hp-button-active-border-color);
-    background-color: var(--hp-button-active-bg-color);
+    color: var(--arch-button-active-text-color);
+    border-color: var(--arch-button-active-border-color);
+    background-color: var(--arch-button-active-bg-color);
     outline: none;
   }
   /*plain*/
   &.is-plain {
-    --hp-button-hover-text-color: var(--hp-color-primary);
-    --hp-button-hover-bg-color: var(--hp-fill-color-blank);
-    --hp-button-hover-border-color: var(--hp-color-primary);
+    --arch-button-hover-text-color: var(--arch-color-primary);
+    --arch-button-hover-bg-color: var(--arch-fill-color-blank);
+    --arch-button-hover-border-color: var(--arch-color-primary);
   }
   /*round*/
   &.is-round {
-    border-radius: var(--hp-border-radius-round);
+    border-radius: var(--arch-border-radius-round);
   }
   /*circle*/
   &.is-circle {
@@ -81,11 +82,11 @@
   &[disabled],
   &[disabled]:hover,
   &[disabled]:focus {
-    color: var(--hp-button-disabled-text-color);
+    color: var(--arch-button-disabled-text-color);
     cursor: not-allowed;
     background-image: none;
-    background-color: var(--hp-button-disabled-bg-color);
-    border-color: var(--hp-button-disabled-border-color);
+    background-color: var(--arch-button-disabled-bg-color);
+    border-color: var(--arch-button-disabled-border-color);
   }
   [class*='er-icon'] {
     width: 1em;
@@ -93,53 +94,53 @@
   }
 }
 @each $val in primary, success, warning, info, danger {
-  .hp-button--$(val) {
-    --hp-button-text-color: var(--hp-color-white);
-    --hp-button-bg-color: var(--hp-color-$(val));
-    --hp-button-border-color: var(--hp-color-$(val));
-    --hp-button-outline-color: var(--hp-color-$(val)-light-5);
-    --hp-button-active-color: var(--hp-color-$(val)-dark-2);
-    --hp-button-hover-text-color: var(--hp-color-white);
-    --hp-button-hover-bg-color: var(--hp-color-$(val)-light-3);
-    --hp-button-hover-border-color: var(--hp-color-$(val)-light-3);
-    --hp-button-active-bg-color: var(--hp-color-$(val)-dark-2);
-    --hp-button-active-border-color: var(--hp-color-$(val)-dark-2);
-    --hp-button-disabled-text-color: var(--hp-color-white);
-    --hp-button-disabled-bg-color: var(--hp-color-$(val)-light-5);
-    --hp-button-disabled-border-color: var(--hp-color-$(val)-light-5);
+  .arch-button--$(val) {
+    --arch-button-text-color: var(--arch-color-white);
+    --arch-button-bg-color: var(--arch-color-$(val));
+    --arch-button-border-color: var(--arch-color-$(val));
+    --arch-button-outline-color: var(--arch-color-$(val)-light-5);
+    --arch-button-active-color: var(--arch-color-$(val)-dark-2);
+    --arch-button-hover-text-color: var(--arch-color-white);
+    --arch-button-hover-bg-color: var(--arch-color-$(val)-light-3);
+    --arch-button-hover-border-color: var(--arch-color-$(val)-light-3);
+    --arch-button-active-bg-color: var(--arch-color-$(val)-dark-2);
+    --arch-button-active-border-color: var(--arch-color-$(val)-dark-2);
+    --arch-button-disabled-text-color: var(--arch-color-white);
+    --arch-button-disabled-bg-color: var(--arch-color-$(val)-light-5);
+    --arch-button-disabled-border-color: var(--arch-color-$(val)-light-5);
   }
-  .hp-button--$(val).is-plain {
-    --hp-button-text-color: var(--hp-color-$(val));
-    --hp-button-bg-color: var(--hp-color-$(val)-light-9);
-    --hp-button-border-color: var(--hp-color-$(val)-light-5);
-    --hp-button-hover-text-color: var(--hp-color-white);
-    --hp-button-hover-bg-color: var(--hp-color-$(val));
-    --hp-button-hover-border-color: var(--hp-color-$(val));
-    --hp-button-active-text-color: var(--hp-color-white);
+  .arch-button--$(val).is-plain {
+    --arch-button-text-color: var(--arch-color-$(val));
+    --arch-button-bg-color: var(--arch-color-$(val)-light-9);
+    --arch-button-border-color: var(--arch-color-$(val)-light-5);
+    --arch-button-hover-text-color: var(--arch-color-white);
+    --arch-button-hover-bg-color: var(--arch-color-$(val));
+    --arch-button-hover-border-color: var(--arch-color-$(val));
+    --arch-button-active-text-color: var(--arch-color-white);
 
-    --hp-button-disabled-text-color: var(--hp-color-$(val)-light-5);
-    --hp-button-disabled-bg-color: var(--hp-color-$(val)-light-9);
-    --hp-button-disabled-border-color: var(--hp-color-$(val)-light-8);
+    --arch-button-disabled-text-color: var(--arch-color-$(val)-light-5);
+    --arch-button-disabled-bg-color: var(--arch-color-$(val)-light-9);
+    --arch-button-disabled-border-color: var(--arch-color-$(val)-light-8);
   }
 }
-.hp-button--large {
-  --hp-button-size: 40px;
-  height: var(--hp-button-size);
+.arch-button--large {
+  --arch-button-size: 40px;
+  height: var(--arch-button-size);
   padding: 12px 19px;
-  font-size: var(--hp-font-size-base);
-  border-radius: var(--hp-border-radius-base);
+  font-size: var(--arch-font-size-base);
+  border-radius: var(--arch-border-radius-base);
   /*circle*/
   &.is-circle {
     border-radius: 50%;
     padding: 12px;
   }
 }
-.hp-button--small {
-  --hp-button-size: 24px;
-  height: var(--hp-button-size);
+.arch-button--small {
+  --arch-button-size: 24px;
+  height: var(--arch-button-size);
   padding: 5px 11px;
   font-size: 12px;
-  border-radius: calc(var(--hp-border-radius-base) - 1px);
+  border-radius: calc(var(--arch-border-radius-base) - 1px);
   /*circle*/
   &.is-circle {
     border-radius: 50%;
@@ -151,44 +152,44 @@
   }
 }
 
-.hp-button-group {
+.arch-button-group {
   display: inline-block;
   vertical-align: middle;
 
   &::after {
     clear: both;
   }
-  & > :deep(.hp-button){
+  & > :deep(.arch-button){
     float: left;
     position: relative;
     margin-left: 0;
     &:first-child{
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
-      border-right-color: var(--hp-button-group-border-color);
+      border-right-color: var(--arch-button-group-border-color);
     }
     &:last-child{
       border-top-left-radius: 0;
       border-bottom-left-radius: 0; 
-      border-left-color: var(--hp-button-group-border-color);
+      border-left-color: var(--arch-button-group-border-color);
     }
     &:not(:first-child):not(:last-child) {
       border-radius: 0;
 
-      border-left-color: var(--hp-button-group-border-color);
-      border-right-color: var(--hp-button-group-border-color);
+      border-left-color: var(--arch-button-group-border-color);
+      border-right-color: var(--arch-button-group-border-color);
     }
     &:not(:last-child) {
       margin-right: -1px;
     }
     &:first-child:last-child {
-      border-top-right-radius: var(--hp-border-radius-base);
-      border-bottom-right-radius: var(--hp-border-radius-base);
-      border-top-left-radius: var(--hp-border-radius-base);
-      border-bottom-left-radius: var(--hp-border-radius-base);
+      border-top-right-radius: var(--arch-border-radius-base);
+      border-bottom-right-radius: var(--arch-border-radius-base);
+      border-top-left-radius: var(--arch-border-radius-base);
+      border-bottom-left-radius: var(--arch-border-radius-base);
 
       &.is-round {
-        border-radius: var(--hp-border-radius-round);
+        border-radius: var(--arch-border-radius-round);
       }
 
       &.is-circle {

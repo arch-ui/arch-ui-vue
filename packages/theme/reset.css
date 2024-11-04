@@ -1,26 +1,26 @@
 /** reset.css */
 body {
-  font-family: var(--hp-font-family);
+  font-family: var(--arch-font-family);
   font-weight: 400;
-  font-size: var(--hp-font-size-base);
-  line-height: calc(var(--hp-font-size-base) * 1.2);
-  color: var(--hp-text-color-primary);
+  font-size: var(--arch-font-size-base);
+  line-height: calc(var(--arch-font-size-base) * 1.2);
+  color: var(--arch-text-color-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
 }
 
 a {
-  color: var(--hp-color-primary);
+  color: var(--arch-color-primary);
   text-decoration: none;
 
   &:hover,
   &:focus {
-    color: var(--hp-color-primary-light-3);
+    color: var(--arch-color-primary-light-3);
   }
 
   &:active {
-    color: var(--hp-color-primary-dark-2);
+    color: var(--arch-color-primary-dark-2);
   }
 }
 
@@ -30,7 +30,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--hp-text-color-regular);
+  color: var(--arch-text-color-regular);
   font-weight: inherit;
 
   &:first-child {
@@ -43,15 +43,15 @@ h6 {
 }
 
 h1 {
-  font-size: calc(var(--hp-font-size-base) + 6px);
+  font-size: calc(var(--arch-font-size-base) + 6px);
 }
 
 h2 {
-  font-size: calc(var(--hp-font-size-base) + 4px);
+  font-size: calc(var(--arch-font-size-base) + 4px);
 }
 
 h3 {
-  font-size: calc(var(--hp-font-size-base) + 2px);
+  font-size: calc(var(--arch-font-size-base) + 2px);
 }
 
 h4,
@@ -75,16 +75,16 @@ p {
 
 sup,
 sub {
-  font-size: calc(var(--hp-font-size-base) - 1px);
+  font-size: calc(var(--arch-font-size-base) - 1px);
 }
 
 small {
-  font-size: calc(var(--hp-font-size-base) - 2px);
+  font-size: calc(var(--arch-font-size-base) - 2px);
 }
 
 hr {
   margin-top: 20px;
   margin-bottom: 20px;
   border: 0;
-  border-top: 1px solid var(--hp-border-color-lighter);
+  border-top: 1px solid var(--arch-border-color-lighter);
 }

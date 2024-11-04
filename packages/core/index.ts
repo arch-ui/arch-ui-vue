@@ -1,8 +1,8 @@
-import { makeInstaller } from '@healwrap/hp-ui-utils';
+import { makeInstaller } from '@arch-design/arch-ui-utils';
 import components from './components';
-import '@healwrap/hp-ui-theme/index.css';
+import '@arch-design/arch-ui-theme/index.css';
 
 const installer = makeInstaller(components);
 
-export * from '@healwrap/hp-ui-components';
+export * from '@arch-design/arch-ui-components';
 export default installer;

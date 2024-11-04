@@ -1,5 +1,5 @@
 export function getPrefixCls(componentName: string, customPrefixCls?: string) {
-  const prefix = customPrefixCls || 'hp';
+  const prefix = customPrefixCls || 'arch';
   return componentName ? `${prefix}-${componentName}` : prefix;
 }
 

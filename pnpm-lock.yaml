@@ -8,6 +8,27 @@ importers:
 
   .:
     dependencies:
+      '@arch-design/arch-ui':
+        specifier: workspace:*
+        version: link:packages/core
+      '@arch-design/arch-ui-components':
+        specifier: workspace:*
+        version: link:packages/components
+      '@arch-design/arch-ui-constants':
+        specifier: workspace:*
+        version: link:packages/constants
+      '@arch-design/arch-ui-hooks':
+        specifier: workspace:*
+        version: link:packages/hooks
+      '@arch-design/arch-ui-locale':
+        specifier: workspace:*
+        version: link:packages/locale
+      '@arch-design/arch-ui-theme':
+        specifier: workspace:*
+        version: link:packages/theme
+      '@arch-design/arch-ui-utils':
+        specifier: workspace:*
+        version: link:packages/utils
       '@fortawesome/fontawesome-svg-core':
         specifier: ^6.5.2
         version: 6.6.0
@@ -17,27 +38,6 @@ importers:
       '@fortawesome/vue-fontawesome':
         specifier: ^3.0.8
         version: 3.0.8(@fortawesome/fontawesome-svg-core@6.6.0)(vue@3.5.12(typescript@5.6.3))
-      '@healwrap/hp-ui':
-        specifier: workspace:*
-        version: link:packages/core
-      '@healwrap/hp-ui-components':
-        specifier: workspace:*
-        version: link:packages/components
-      '@healwrap/hp-ui-constants':
-        specifier: workspace:*
-        version: link:packages/constants
-      '@healwrap/hp-ui-hooks':
-        specifier: workspace:*
-        version: link:packages/hooks
-      '@healwrap/hp-ui-locale':
-        specifier: workspace:*
-        version: link:packages/locale
-      '@healwrap/hp-ui-theme':
-        specifier: workspace:*
-        version: link:packages/theme
-      '@healwrap/hp-ui-utils':
-        specifier: workspace:*
-        version: link:packages/utils
       '@popperjs/core':
         specifier: ^2.11.8
         version: 2.11.8

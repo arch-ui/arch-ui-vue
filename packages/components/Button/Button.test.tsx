@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { HpButton as Button } from './index';
-import { getPrefixCls } from '@healwrap/hp-ui-utils';
+import { AButton as Button } from './index';
+import { getPrefixCls } from '@arch-design/arch-ui-utils';
 
 describe('Button.vue', () => {
   // Props: type

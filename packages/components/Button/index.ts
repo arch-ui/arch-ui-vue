@@ -1,6 +1,6 @@
 import _Button from './Button.vue';
-import { withInstall } from '@healwrap/hp-ui-utils';
+import { withInstall } from '@arch-design/arch-ui-utils';
 
-export const HpButton = withInstall(_Button);
+export const AButton = withInstall(_Button);
 
-export * from './type.d'
+export * from './type.d';
