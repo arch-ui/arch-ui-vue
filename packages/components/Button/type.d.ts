@@ -66,11 +66,6 @@ export interface ButtonProps {
    */
   loadingIcon?: string;
   /**
-   * @description 自动聚焦(原生`autofocus`属性)
-   * @default false
-   */
-  autofocus?: boolean;
-  /**
    * @description 是否开启节流
    * @default true
    */

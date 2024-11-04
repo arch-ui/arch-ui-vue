@@ -1,4 +1,4 @@
-@import '@arch-design/arch-ui-theme/index.scss';
+@use '@arch-design/arch-ui-theme/index.scss' as *;
 
 $btn-prefix-cls: '#{$prefix}-button';
 

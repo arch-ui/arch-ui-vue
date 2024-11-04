@@ -1,9 +1,9 @@
 import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3';
-import { fn } from '@storybook/test';
+import { fn, within, userEvent, expect } from '@storybook/test';
 
 import { AButton } from '@arch-design/arch-ui';
 
-type Story = StoryObj<typeof AButton> & { argTypes: ArgTypes };
+type Story = StoryObj<typeof AButton> & { argTypes?: ArgTypes };
 
 const meta: Meta<typeof AButton> = {
   title: 'Example/Button',
@@ -38,9 +38,6 @@ const meta: Meta<typeof AButton> = {
     },
     throttleDuration: {
       control: 'number',
-    },
-    autofocus: {
-      control: 'boolean',
     },
     tag: {
       control: { type: 'select' },
@@ -83,6 +80,30 @@ export const Default: Story & { args: { content: string } } = {
     },
     template: container(
       `<a-button data-testid="story-test-btn" v-bind="args">{{args.content}}</a-button>`
+    ),
+  }),
+  play: async ({ canvasElement, args, step }) => {
+    const canvas = within(canvasElement);
+    await step('click btn', async () => {
+      await userEvent.click(canvas.getByRole('button'));
+    });
+    expect(args.onClick).toHaveBeenCalled();
+  },
+};
+
+export const Circle: Story & { args: { icon: string } } = {
+  args: {
+    icon: 'search',
+    circle: true,
+    plain: true
+  },
+  render: (args: any) => ({
+    components: { AButton },
+    setup() {
+      return { args };
+    },
+    template: container(
+      `<a-button data-testid="story-test-btn" v-bind="args"></a-button>`
     ),
   }),
 };

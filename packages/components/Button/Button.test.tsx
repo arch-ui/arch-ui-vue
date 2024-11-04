@@ -1,7 +1,8 @@
-import { describe, it, expect } from 'vitest';
+import { getPrefixCls } from '@arch-design/arch-ui-utils';
+import { describe, it, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { AButton as Button } from './index';
-import { getPrefixCls } from '@arch-design/arch-ui-utils';
+import Icon from '../Icon/Icon.vue';
 
 describe('Button.vue', () => {
   // Props: type
@@ -59,10 +60,52 @@ describe('Button.vue', () => {
     expect(wrapper.element.tagName.toLowerCase()).toBe('a');
   });
 
+  // Props: Icon
+  it('should renders the custom icon when icon prop is set', () => {
+    const wrapper = mount(() => <Button {...{ icon: 'search' }}>测试内容</Button>);
+    expect(wrapper.find('i').exists()).toBe(true);
+  });
+
   // Events: click
   it('should emits a click event when the button is clicked', async () => {
     const wrapper = mount(Button, {});
     await wrapper.trigger('click');
     expect(wrapper.emitted().click).toHaveLength(1);
+  });
+
+  // Test the click event with and without throttle
+  it.each([
+    ['withoutThrottle', false],
+    ['withThrottle', true],
+  ])('emits click event %s', async (_, useThrottle) => {
+    const clickSpy = vi.fn();
+    const wrapper = mount(() => (
+      <Button
+        onClick={clickSpy}
+        {...{
+          useThrottle,
+          throttleDuration: 400,
+        }}
+      />
+    ));
+
+    await wrapper.get('button').trigger('click');
+    await wrapper.get('button').trigger('click');
+    await wrapper.get('button').trigger('click');
+    expect(clickSpy).toBeCalledTimes(useThrottle ? 1 : 3);
+  });
+
+  // Exception Handling: loading state
+  it('should display loading icon and not emit click event when button is loading', async () => {
+    const wrapper = mount(Button, {
+      props: { loading: true },
+    });
+    const iconElement = wrapper.findComponent(Icon);
+
+    expect(wrapper.find('.loading-icon').exists()).toBe(true);
+    expect(iconElement.exists()).toBeTruthy();
+    expect(iconElement.find('svg').attributes('data-icon')).toBe('spinner');
+    await wrapper.trigger('click');
+    expect(wrapper.emitted('click')).toBeUndefined();
   });
 });
