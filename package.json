@@ -7,6 +7,7 @@
     "dev": "pnpm --filter @healwrap/hp-ui-playground dev",
     "storybook:dev": "pnpm --filter @healwrap/hp-ui-playground storybook dev -p 6006",
     "docs:dev": "pnpm --filter @healwrap/hp-ui-docs dev",
+    "docs:build": "pnpm --filter @healwrap/hp-ui-docs build",
     "test": "cross-env NODE_ENV=test pnpm --filter @healwrap/hp-ui-components test"
   },
   "keywords": [],
