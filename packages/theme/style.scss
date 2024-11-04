@@ -2,16 +2,24 @@
 @use './reset.scss' as *;
 
 :root {
-  /* colors */
+  // colors
+  --primary-color: #165dff;
+  --success-color: #67c23a;
+  --warning-color: #e6a23c;
+  --danger-color: #f56c6c;
+  --info-color: #909399;
+
+  $colors: (
+    primary: var(--primary-color),
+    success: var(--success-color),
+    warning: var(--warning-color),
+    danger: var(--danger-color),
+    info: var(--info-color),
+  );
+
+  // 其他变量
   --#{$prefix}-color-white: #ffffff;
   --#{$prefix}-color-black: #000000;
-  $colors: (
-    primary: #409eff,
-    success: #67c23a,
-    warning: #e6a23c,
-    danger: #f56c6c,
-    info: #909399,
-  );
 
   --#{$prefix}-bg-color: #ffffff;
   --#{$prefix}-bg-color-page: #f2f3f5;
@@ -35,15 +43,17 @@
   --#{$prefix}-fill-color-darker: #e6e8eb;
   --#{$prefix}-fill-color-blank: #ffffff;
 
-  // 使用 Sass 的 @each 循环和插值
   @each $val, $color in $colors {
+    // 定义基础颜色的 CSS 变量
     --#{$prefix}-color-#{$val}: #{$color};
 
+    // TODO 低兼容性 使用 CSS 的 color-mix() 函数生成浅色变体
     @for $i from 3 through 9 {
-      --#{$prefix}-color-#{$val}-light-#{$i}: #{mix(white, $color, $i * 10%)};
+      --#{$prefix}-color-#{$val}-light-#{$i}: color-mix(in srgb, white #{$i * 10%}, #{$color});
     }
 
-    --#{$prefix}-color-#{$val}-dark-2: #{mix(black, $color, 20%)};
+    // 使用 CSS 的 color-mix() 函数生成深色变体
+    --#{$prefix}-color-#{$val}-dark-2: color-mix(in srgb, black 20%, #{$color});
   }
 
   /* border */
