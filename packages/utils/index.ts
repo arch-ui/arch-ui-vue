@@ -1,2 +1,2 @@
 export * from './install';
-export * from './namespace.ts'
+export * from './namespace.ts';
