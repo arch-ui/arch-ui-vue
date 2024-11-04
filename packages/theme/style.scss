@@ -1,0 +1,80 @@
+@use './variables.scss' as *;
+@use './reset.scss' as *;
+
+:root {
+  /* colors */
+  --#{$prefix}-color-white: #ffffff;
+  --#{$prefix}-color-black: #000000;
+  $colors: (
+    primary: #409eff,
+    success: #67c23a,
+    warning: #e6a23c,
+    danger: #f56c6c,
+    info: #909399,
+  );
+
+  --#{$prefix}-bg-color: #ffffff;
+  --#{$prefix}-bg-color-page: #f2f3f5;
+  --#{$prefix}-bg-color-overlay: #ffffff;
+  --#{$prefix}-text-color-primary: #303133;
+  --#{$prefix}-text-color-regular: #606266;
+  --#{$prefix}-text-color-secondary: #909399;
+  --#{$prefix}-text-color-placeholder: #a8abb2;
+  --#{$prefix}-text-color-disabled: #c0c4cc;
+  --#{$prefix}-border-color: #dcdfe6;
+  --#{$prefix}-border-color-light: #e4e7ed;
+  --#{$prefix}-border-color-lighter: #ebeef5;
+  --#{$prefix}-border-color-extra-light: #f2f6fc;
+  --#{$prefix}-border-color-dark: #d4d7de;
+  --#{$prefix}-border-color-darker: #cdd0d6;
+  --#{$prefix}-fill-color: #f0f2f5;
+  --#{$prefix}-fill-color-light: #f5f7fa;
+  --#{$prefix}-fill-color-lighter: #fafafa;
+  --#{$prefix}-fill-color-extra-light: #fafcff;
+  --#{$prefix}-fill-color-dark: #ebedf0;
+  --#{$prefix}-fill-color-darker: #e6e8eb;
+  --#{$prefix}-fill-color-blank: #ffffff;
+
+  // 使用 Sass 的 @each 循环和插值
+  @each $val, $color in $colors {
+    --#{$prefix}-color-#{$val}: #{$color};
+
+    @for $i from 3 through 9 {
+      --#{$prefix}-color-#{$val}-light-#{$i}: #{mix(white, $color, $i * 10%)};
+    }
+
+    --#{$prefix}-color-#{$val}-dark-2: #{mix(black, $color, 20%)};
+  }
+
+  /* border */
+  --#{$prefix}-border-width: 1px;
+  --#{$prefix}-border-style: solid;
+  --#{$prefix}-border-color-hover: var(--#{$prefix}-text-color-disabled);
+  --#{$prefix}-border: var(--#{$prefix}-border-width) var(--#{$prefix}-border-style)
+    var(--#{$prefix}-border-color);
+  --#{$prefix}-border-radius-base: 4px;
+  --#{$prefix}-border-radius-small: 2px;
+  --#{$prefix}-border-radius-round: 20px;
+  --#{$prefix}-border-radius-circle: 100%;
+
+  /* font */
+  --#{$prefix}-font-size-extra-large: 20px;
+  --#{$prefix}-font-size-large: 18px;
+  --#{$prefix}-font-size-medium: 16px;
+  --#{$prefix}-font-size-base: 14px;
+  --#{$prefix}-font-size-small: 13px;
+  --#{$prefix}-font-size-extra-small: 12px;
+  --#{$prefix}-font-family: Inter, '-apple-system', BlinkMacSystemFont, 'PingFang SC',
+    'Hiragino Sans GB', 'noto sans', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial,
+    sans-serif;
+  --#{$prefix}-font-weight-primary: 500;
+
+  /* disabled */
+  --#{$prefix}-disabled-bg-color: var(--#{$prefix}-fill-color-light);
+  --#{$prefix}-disabled-text-color: var(--#{$prefix}-text-color-placeholder);
+  --#{$prefix}-disabled-border-color: var(--#{$prefix}-border-color-light);
+
+  /* animation */
+  --#{$prefix}-transition-duration: 0.4s;
+  --#{$prefix}-transition-duration-fast: 0.2s;
+}
