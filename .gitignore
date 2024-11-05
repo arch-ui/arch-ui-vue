@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.idea
+cache
+.tmp
+coverage
+storybook-static
+!/packages/core/dist
