@@ -4,7 +4,7 @@ import { defineConfig } from 'vitepress';
 export default defineConfig({
   title: 'arch-ui',
   description: '类 arco design ui 库',
-  base: '/',
+  base: '/docs',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
