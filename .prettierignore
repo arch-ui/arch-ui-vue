@@ -1,7 +1,0 @@
-components/index.vue
-*.md
-!**/demo/*.md
-*-lock.*
-node_modules
-.idea
-.vscode
