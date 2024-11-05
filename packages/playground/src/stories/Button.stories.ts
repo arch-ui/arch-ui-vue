@@ -1,7 +1,7 @@
 import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3';
 import { fn, within, userEvent, expect } from '@storybook/test';
 
-import { AButton } from '@arch-design/arch-ui';
+import { AButton, AButtonGroup } from '@arch-design/arch-ui';
 
 type Story = StoryObj<typeof AButton> & { argTypes?: ArgTypes };
 
@@ -95,15 +95,43 @@ export const Circle: Story & { args: { icon: string } } = {
   args: {
     icon: 'search',
     circle: true,
-    plain: true
+    plain: true,
   },
   render: (args: any) => ({
     components: { AButton },
     setup() {
       return { args };
     },
+    template: container(`<a-button data-testid="story-test-btn" v-bind="args"></a-button>`),
+  }),
+};
+
+export const ButtonGroup: Story = {
+  argTypes: {
+    groupType: {
+      control: { type: 'select' },
+      options: ['primary', 'success', 'warning', 'danger', 'info', ''],
+    },
+    groupSize: {
+      control: { type: 'select' },
+      options: ['large', 'default', 'small', ''],
+    },
+    groupDisabled: {
+      control: 'boolean',
+    },
+  },
+  args: {},
+  render: (args: any) => ({
+    components: { AButton, AButtonGroup },
+    setup() {
+      return { args };
+    },
     template: container(
-      `<a-button data-testid="story-test-btn" v-bind="args"></a-button>`
+      `<a-button-group :type="args.groupType" :size="args.groupSize" :disabled="args.groupDisabled">
+        <a-button round>13141</a-button>
+        <a-button>13141</a-button>
+        <a-button round>13141</a-button>
+      </a-button-group>`
     ),
   }),
 };

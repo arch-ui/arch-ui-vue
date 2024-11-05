@@ -1,8 +1,11 @@
 import { getPrefixCls } from '@arch-design/arch-ui-utils';
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, test } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { AButton as Button } from './index';
 import Icon from '../Icon/Icon.vue';
+import ButtonGroup from './ButtonGroup.vue';
+
+const compName = ['button', 'button-group'];
 
 describe('Button.vue', () => {
   // Props: type
@@ -12,7 +15,7 @@ describe('Button.vue', () => {
       const wrapper = mount(Button, {
         props: { type: type as any },
       });
-      expect(wrapper.classes()).toContain(`${getPrefixCls('button')}--${type}`);
+      expect(wrapper.classes()).toContain(`${getPrefixCls(compName[0])}--${type}`);
     });
   });
 
@@ -23,7 +26,7 @@ describe('Button.vue', () => {
       const wrapper = mount(Button, {
         props: { size: size as any },
       });
-      expect(wrapper.classes()).toContain(`${getPrefixCls('button')}--${size}`);
+      expect(wrapper.classes()).toContain(`${getPrefixCls(compName[0])}--${size}`);
     });
   });
 
@@ -37,9 +40,6 @@ describe('Button.vue', () => {
   ])('should has the correct class when prop %s is set to true', (prop, className) => {
     const wrapper = mount(Button, {
       props: { [prop]: true },
-      global: {
-        stubs: ['ErIcon'],
-      },
     });
     expect(wrapper.classes()).toContain(className);
   });
@@ -107,5 +107,60 @@ describe('Button.vue', () => {
     expect(iconElement.find('svg').attributes('data-icon')).toBe('spinner');
     await wrapper.trigger('click');
     expect(wrapper.emitted('click')).toBeUndefined();
+  });
+});
+
+describe('ButtonGroup.vue', () => {
+  test('basic button group', async () => {
+    const wrapper = mount(() => (
+      <ButtonGroup>
+        <Button>button 1</Button>
+        <Button>button 2</Button>
+      </ButtonGroup>
+    ));
+
+    expect(wrapper.classes()).toContain(getPrefixCls(compName[1]));
+  });
+
+  test('button group size', () => {
+    const sizes = ['large', 'default', 'small'];
+    sizes.forEach((size) => {
+      const wrapper = mount(() => (
+        <ButtonGroup size={size as any}>
+          <Button>button 1</Button>
+          <Button>button 2</Button>
+        </ButtonGroup>
+      ));
+
+      const buttonWrapper = wrapper.findComponent(Button);
+      expect(buttonWrapper.classes()).toContain(`${getPrefixCls(compName[0])}--${size}`);
+    });
+  });
+
+  test('button group type', () => {
+    const types = ['primary', 'success', 'warning', 'danger', 'info'];
+    types.forEach((type) => {
+      const wrapper = mount(() => (
+        <ButtonGroup type={type as any}>
+          <Button>button 1</Button>
+          <Button>button 2</Button>
+        </ButtonGroup>
+      ));
+
+      const buttonWrapper = wrapper.findComponent(Button);
+      expect(buttonWrapper.classes()).toContain(`${getPrefixCls(compName[0])}--${type}`);
+    });
+  });
+
+  test('button group disabled', () => {
+    const wrapper = mount(() => (
+      <ButtonGroup disabled>
+        <Button>button 1</Button>
+        <Button>button 2</Button>
+      </ButtonGroup>
+    ));
+
+    const buttonWrapper = wrapper.findComponent(Button);
+    expect(buttonWrapper.classes()).toContain(`is-disabled`);
   });
 });

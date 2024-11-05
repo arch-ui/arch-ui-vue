@@ -155,7 +155,7 @@ $btn-prefix-cls: '#{$prefix}-button';
     height: 12px;
   }
 }
-
+// 按钮组
 .#{$btn-prefix-cls}-group {
   display: inline-block;
   vertical-align: middle;
@@ -163,7 +163,7 @@ $btn-prefix-cls: '#{$prefix}-button';
   &::after {
     clear: both;
   }
-  & > :deep(.#{$btn-prefix-cls}) {
+  & > .#{$btn-prefix-cls} {
     float: left;
     position: relative;
     margin-left: 0;

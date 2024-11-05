@@ -3,26 +3,32 @@ import type { ButtonProps, ButtonEmits, ButtonInstance } from './type';
 import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui-utils';
 import { throttle } from 'lodash-es';
 import AIcon from '../Icon/Icon.vue';
-import { computed, ref } from 'vue';
+import { computed, inject, ref } from 'vue';
+import { BUTTON_GROUP_CTX_KEY } from './constants';
 
 const compName = 'button';
+const compPrefix = getPrefixCls(compName);
 
 defineOptions({
   name: getPrefixPascal(compName),
 });
 
-const compPrefix = getPrefixCls(compName);
-
 const props = withDefaults(defineProps<ButtonProps>(), {
   tag: 'button',
   nativeType: 'button',
   type: 'primary',
+  useThrottle: true,
+  throttleDuration: 500
 });
 
 const emit = defineEmits<ButtonEmits>();
 
 const slots = defineSlots();
 
+const ctx = inject(BUTTON_GROUP_CTX_KEY, void 0);
+const size = computed(() => ctx?.size ?? props?.size ?? "");
+const type = computed(() => ctx?.type ?? props?.type ?? "");
+const disabled = computed(() => ctx?.disabled || props?.disabled || false);
 const _ref = ref<HTMLButtonElement | void>();
 const iconStyle = computed(() => ({ marginRight: slots.default ? '6px' : '0px' }));
 
@@ -32,6 +38,9 @@ const handleBtnClickThrottle = throttle(handleBtnClick, props.throttleDuration);
 
 defineExpose<ButtonInstance>({
   ref: _ref,
+  disabled,
+  size,
+  type
 });
 </script>
 
