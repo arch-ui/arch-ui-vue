@@ -17,8 +17,6 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   tag: 'button',
   nativeType: 'button',
   type: 'primary',
-  useThrottle: true,
-  throttleDuration: 500
 });
 
 const emit = defineEmits<ButtonEmits>();

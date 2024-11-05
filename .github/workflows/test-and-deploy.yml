@@ -58,6 +58,14 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
+      - name: Install Markdown to HTML converter
+        run: npm install -g showdown
+      # 这里清除了根目录无关文件 提到最前执行
+      - name: Convert README.md to HTML
+        run: |
+          showdown makehtml -i README.md -o index.html
+          find . -mindepth 1 ! -name 'index.html' -exec rm -rf {} +
+
       - name: Download docs
         uses: actions/download-artifact@v3
         with:
@@ -69,6 +77,13 @@ jobs:
         with:
           name: playground
           path: ./playground
+
+      - name: Deploy README.md
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          publish_dir: ./
+
 
       - name: Deploy docs to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
