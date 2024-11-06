@@ -9,22 +9,7 @@
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "import": "./dist/es/index.js",
-      "require": "./dist/umd/index.umd.cjs",
-      "types": "./dist/types/core/index.d.js"
-    },
-    "./dist/": {
-      "import": "./dist/",
-      "require": "./dist/"
-    },
-    "./dist/index.css": {
-      "import": "./dist/index.css"
-    }
-  },
   "sideEffects": [
-    "dist/index.css",
     "dist/**/*.css",
     "dist/*.css"
   ],

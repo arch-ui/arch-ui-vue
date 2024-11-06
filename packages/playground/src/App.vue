@@ -2,7 +2,6 @@
 
 <template>
   <div>
-    <arch-button></arch-button>
   </div>
 </template>
 
