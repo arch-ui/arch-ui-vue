@@ -30,10 +30,15 @@ jobs:
       - name: Run tests
         run: npm run test
       
-      # 打包
+      # 文档打包
       - name: Build docs
         run: npm run docs:build
       
+      # 先打包组件库 给 playground 使用
+      - name: Build Components
+        run: npm run build
+
+      # Playground 打包使用了组件库，直接使用上一步产物即可
       - name: Build Playground
         run: npm run storybook:build
 
