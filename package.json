@@ -20,7 +20,6 @@
     "@arch-design/arch-ui-constants": "workspace:*",
     "@arch-design/arch-ui-hooks": "workspace:*",
     "@arch-design/arch-ui-locale": "workspace:*",
-    "@arch-design/arch-ui-theme": "workspace:*",
     "@arch-design/arch-ui-utils": "workspace:*",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",

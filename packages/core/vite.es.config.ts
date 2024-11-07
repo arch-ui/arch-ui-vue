@@ -1,8 +1,8 @@
-import { defineConfig } from 'vite';
+import { defineConfig, type Plugin } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 import { readdirSync, readdir } from 'fs';
-import { delay, defer, filter, map } from 'lodash-es';
+import { delay, defer, filter, map, chunk } from 'lodash-es';
 import dts from 'vite-plugin-dts';
 
 function getDirectoriesSync(basePath: string) {
@@ -14,6 +14,29 @@ function getDirectoriesSync(basePath: string) {
   );
 }
 
+// 自动导入组件样式
+function importCssPlugin(): Plugin {
+  return {
+    name: 'vite-plugin-vue-import-css',
+    apply: 'build',
+    enforce: 'post',
+    renderChunk(code, chunk) {
+      const isVueSFC = /^(?!.*node_modules)(?!.*_virtual).*\.vue\.js$/i.test(chunk.fileName);
+      if (chunk.isEntry || chunk.type !== 'chunk' || !isVueSFC) {
+        return null;
+      }
+      const componentNameReg = /([^/]+)\.vue\.js$/;
+      const match = chunk.fileName.match(componentNameReg);
+      const componentName = match ? match[1] : null;
+      if (componentName) {
+        // 插入对 index.css 和 [componentName].css 的导入
+        return `import './${componentName}.css';\n${code}`;
+      }
+      return null;
+    },
+  };
+}
+
 export default defineConfig({
   plugins: [
     vue(),
@@ -21,6 +44,7 @@ export default defineConfig({
       tsconfigPath: '../../tsconfig.build.json',
       outDir: 'dist/types',
     }),
+    importCssPlugin(),
   ],
   build: {
     outDir: 'dist/es',
@@ -30,6 +54,8 @@ export default defineConfig({
       fileName: 'index',
       formats: ['es'],
     },
+    cssCodeSplit: true,
+    cssTarget: 'chrome61',
     rollupOptions: {
       external: [
         'vue',
@@ -40,9 +66,19 @@ export default defineConfig({
         'async-validator',
       ],
       output: {
-        assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'style.css') return 'index.css'; // 打包样式会打成一个整体 style.css 这里是重命名
-          return assetInfo.name as string;
+        // assetFileNames: (assetInfo) => {
+        //   console.log(assetInfo.name);
+        //   // if (assetInfo.name === 'style.css') return 'index.css'; // 打包样式会打成一个整体 style.css 这里是重命名
+        //   return assetInfo.name as string;
+        // },
+        chunkFileNames: (chunk) => {
+          // 在manualChunks处理之后的chunk会到这个阶段，在这里对命名进行处理
+          for (const compName of getDirectoriesSync('../components')) {
+            if (chunk.name === compName) {
+              return `${chunk.name}.vue.js`;
+            }
+          }
+          return `${chunk.name}-[hash].js`;
         },
         manualChunks(id) {
           if (id.includes('node_modules')) {
@@ -60,7 +96,7 @@ export default defineConfig({
               return dirName;
             }
           }
-        }
+        },
       },
     },
   },
