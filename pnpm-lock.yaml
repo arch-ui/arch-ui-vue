@@ -14,21 +14,6 @@ importers:
       '@arch-design/arch-ui-components':
         specifier: workspace:*
         version: link:packages/components
-      '@arch-design/arch-ui-constants':
-        specifier: workspace:*
-        version: link:packages/constants
-      '@arch-design/arch-ui-hooks':
-        specifier: workspace:*
-        version: link:packages/hooks
-      '@arch-design/arch-ui-locale':
-        specifier: workspace:*
-        version: link:packages/locale
-      '@arch-design/arch-ui-theme':
-        specifier: workspace:*
-        version: link:packages/theme
-      '@arch-design/arch-ui-utils':
-        specifier: workspace:*
-        version: link:packages/utils
       '@fortawesome/fontawesome-svg-core':
         specifier: ^6.5.2
         version: 6.6.0
@@ -129,8 +114,6 @@ importers:
 
   packages/components: {}
 
-  packages/constants: {}
-
   packages/core:
     dependencies:
       '@fortawesome/fontawesome-svg-core':
@@ -152,9 +135,6 @@ importers:
         specifier: ^3.4.19
         version: 3.5.12(typescript@5.6.3)
     devDependencies:
-      '@arch-design/arch-ui-components':
-        specifier: workspace:*
-        version: link:../components
       '@rollup/plugin-terser':
         specifier: ^0.4.4
         version: 0.4.4(rollup@4.24.3)
@@ -182,10 +162,6 @@ importers:
       vitepress:
         specifier: 1.1.4
         version: 1.1.4(@algolia/client-search@5.12.0)(@types/node@20.17.6)(@types/react@18.3.12)(async-validator@4.2.5)(less@4.2.0)(postcss@8.4.47)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.80.6)(search-insights@2.17.2)(terser@5.36.0)(typescript@5.6.3)
-
-  packages/hooks: {}
-
-  packages/locale: {}
 
   packages/playground:
     devDependencies:
@@ -219,10 +195,6 @@ importers:
       storybook:
         specifier: ^8.4.1
         version: 8.4.1(prettier@3.3.3)
-
-  packages/theme: {}
-
-  packages/utils: {}
 
 packages:
 

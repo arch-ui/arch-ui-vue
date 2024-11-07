@@ -2,7 +2,7 @@
 import type { ButtonGroupProps } from './type.d';
 import { provide, reactive, toRef } from 'vue';
 import { BUTTON_GROUP_CTX_KEY } from './constants';
-import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui-utils';
+import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui/_utils';
 
 const compName = 'button-group';
 const compPrefix = getPrefixCls(compName);

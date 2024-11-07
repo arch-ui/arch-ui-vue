@@ -32,7 +32,6 @@
     "async-validator": "^4.2.5"
   },
   "devDependencies": {
-    "@arch-design/arch-ui-components": "workspace:*",
     "@rollup/plugin-terser": "^0.4.4",
     "rollup-plugin-visualizer": "^5.12.0",
     "terser": "^5.31.1",

@@ -1,4 +1,4 @@
-import { getPrefixCls } from '@arch-design/arch-ui-utils';
+import { getPrefixCls } from '@arch-design/arch-ui/_utils';
 import { describe, it, expect, vi, test } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { AButton as Button } from './index';

@@ -1,4 +1,4 @@
-import { withInstall } from '@arch-design/arch-ui-utils';
+import { withInstall } from '@arch-design/arch-ui/_utils';
 import _Button from './Button.vue';
 import _ButtonGroup from './ButtonGroup.vue';
 
