@@ -1,8 +1,8 @@
 import { defineConfig, type Plugin } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
-import { readdirSync, readdir } from 'fs';
-import { delay, defer, filter, map, chunk } from 'lodash-es';
+import { readdirSync } from 'fs';
+import { filter, map } from 'lodash-es';
 import dts from 'vite-plugin-dts';
 
 function getDirectoriesSync(basePath: string) {
@@ -78,7 +78,7 @@ export default defineConfig({
               return `${chunk.name}.vue.js`;
             }
           }
-          return `${chunk.name}-[hash].js`;
+          return `${chunk.name}.js`;
         },
         manualChunks(id) {
           if (id.includes('node_modules')) {

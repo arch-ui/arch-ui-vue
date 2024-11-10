@@ -1,0 +1,68 @@
+@use '@arch-design/arch-ui/_style/index.scss' as *;
+
+$collapse-prefix-cls: '#{$prefix}-collapse';
+
+.#{$collapse-prefix-cls} {
+  #{$collapse-prefix-cls}-border-color: var(#{$prefix}-border-color-light);
+  #{$collapse-prefix-cls}-header-height: 48px;
+  #{$collapse-prefix-cls}-header-bg-color: var(#{$prefix}-fill-color-blank);
+  #{$collapse-prefix-cls}-header-text-color: var(#{$prefix}-text-color-primary);
+  #{$collapse-prefix-cls}-header-font-size: 13px;
+  #{$collapse-prefix-cls}-content-bg-color: var(#{$prefix}-fill-color-blank);
+  #{$collapse-prefix-cls}-content-font-size: 13px;
+  #{$collapse-prefix-cls}-content-text-color: var(#{$prefix}-text-color-primary);
+  #{$collapse-prefix-cls}-disabled-text-color: var(#{$prefix}-disabled-text-color);
+  #{$collapse-prefix-cls}-disabled-border-color: var(#{$prefix}-border-color-lighter);
+  border-top: 1px solid var(#{$collapse-prefix-cls}-border-color);
+  border-bottom: 1px solid var(#{$collapse-prefix-cls}-border-color);
+}
+
+.#{$collapse-prefix-cls}-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(#{$collapse-prefix-cls}-header-height);
+  line-height: var(#{$collapse-prefix-cls}-header-height);
+  background-color: var(#{$collapse-prefix-cls}-header-bg-color);
+  color: var(#{$collapse-prefix-cls}-header-text-color);
+  cursor: pointer;
+  font-size: var(#{$collapse-prefix-cls}-header-font-size);
+  font-weight: 500;
+  transition: border-bottom-color var(#{$prefix}-transition-duration);
+  outline: none;
+  border-bottom: 1px solid var(#{$collapse-prefix-cls}-border-color);
+
+  &.is-disabled {
+    color: var(#{$collapse-prefix-cls}-disabled-text-color);
+    cursor: not-allowed;
+    background-image: none;
+  }
+
+  &.is-active {
+    border-bottom-color: transparent;
+
+    .header-angle {
+      transform: rotate(90deg);
+    }
+  }
+
+  .header-angle {
+    transition: transform $transition-duration-3;
+  }
+}
+
+.#{$collapse-prefix-cls}-item__content {
+  will-change: height;
+  background-color: var(#{$collapse-prefix-cls}-content-bg-color);
+  overflow: hidden;
+  box-sizing: border-box;
+  font-size: var(#{$collapse-prefix-cls}-content-font-size);
+  color: var(#{$collapse-prefix-cls}-content-text-color);
+  border-bottom: 1px solid var(#{$collapse-prefix-cls}-border-color);
+  padding-bottom: 25px;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: height $transition-duration-3 ease-in-out;
+}
