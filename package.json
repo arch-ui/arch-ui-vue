@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "pnpm --filter @arch-design/arch-ui build",
-    "storybook:dev": "pnpm --filter @arch-design/arch-ui-playground storybook",
+    "storybook:dev": "pnpm --filter @arch-design/arch-ui useDev && pnpm --filter @arch-design/arch-ui-playground storybook",
     "storybook:build": "pnpm --filter @arch-design/arch-ui-playground build-storybook",
     "test": "cross-env NODE_ENV=test pnpm --filter @arch-design/arch-ui-components test",
-    "docs:dev": "pnpm --filter @arch-design/arch-ui-docs dev",
+    "docs:dev": "pnpm --filter @arch-design/arch-ui useDev && pnpm --filter @arch-design/arch-ui-docs dev",
     "docs:build": "pnpm --filter @arch-design/arch-ui-docs build"
   },
   "keywords": [],

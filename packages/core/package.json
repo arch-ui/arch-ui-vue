@@ -3,23 +3,20 @@
   "version": "1.0.0",
   "description": "Arch UI Components Library",
   "type": "module",
-  "main": "./dist/umd/index.umd.cjs",
-  "module": "./dist/es/index.js",
-  "types": "./dist/types/core/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "sideEffects": [
-    "dist/**/*.css",
-    "dist/*.css"
-  ],
+  "main": "./index.ts",
+  "module": "",
+  "types": "",
+  "files": "",
+  "sideEffects": "",
   "scripts": {
     "build": "run-s clean build-only",
-    "build-only": "run-p build-es build-umd",
+    "build-only": "run-p useBuild build-es build-umd",
     "build-umd": "vite build --config vite.umd.config.ts",
     "build-es": "vite build --config vite.es.config.ts",
     "clean": "rimraf dist",
-    "release": "release-it"
+    "release": "release-it",
+    "useDev": "node ./scripts/useDevBuild dev",
+    "useBuild": "node ./scripts/useDevBuild build"
   },
   "keywords": [],
   "author": "",
