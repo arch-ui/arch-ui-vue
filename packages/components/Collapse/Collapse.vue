@@ -18,10 +18,6 @@ if (props.accordion && activeKeys.value.length > 1) {
   console.warn('在手风琴模式下，不能使用多个激活面板');
 }
 function handleItemClick(key: CollapseItemKey) {
-  // TODO
-  console.log(activeKeys.value);
-  console.log(props);
-  
   if (!activeKeys.value || activeKeys.value.length === 0) return;
 
   let _activeKeys = [...activeKeys.value];
@@ -57,7 +53,7 @@ provide(COLLAPSE_CTX_KEY, {
 </script>
 
 <template>
-  <div :class="[compPrefix]">
+  <div :class="`${compPrefix}`">
     <slot></slot>
   </div>
 </template>

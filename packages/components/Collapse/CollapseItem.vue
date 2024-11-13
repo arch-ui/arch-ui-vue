@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { CollapseItemProps } from './type.d';
-import { computed, inject, useAttrs } from 'vue';
+import { computed, inject, getCurrentInstance } from 'vue';
 import { COLLAPSE_CTX_KEY } from './constants';
 import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui/_utils';
 import AIcon from '../Icon/Icon.vue';
@@ -8,31 +8,30 @@ import transitionEvents from './transitionEvents';
 
 const compName = 'collapse-item';
 const compPrefix = getPrefixCls(compName);
-
+const instance = getCurrentInstance();
+const key = computed<any>(() => instance?.vnode.key);
 defineOptions({
   name: getPrefixPascal(compName),
 });
 
 const props = defineProps<CollapseItemProps>();
 const ctx = inject(COLLAPSE_CTX_KEY, void 0);
-const atters: any = useAttrs();
-console.log(atters);
-const isActive = computed(() => ctx?.activeKeys.value?.includes(atters.key));
+const isActive = computed(() => ctx?.activeKeys.value?.includes(key.value));
 
 function handleClick() {
   if (props.disabled) return;
-  ctx?.handleItemClick(atters.key);
+  ctx?.handleItemClick(key.value);
 }
 </script>
 <template>
   <div
     :class="{
-      compPrefix,
+      [`${compPrefix}`]: compPrefix,
       'is-disabled': disabled,
     }"
   >
     <div
-      :id="`item-header-${atters.key}`"
+      :id="`item-header-${key}`"
       :class="{
         [`${compPrefix}__header`]: `${compPrefix}__header`,
         'is-disabled': disabled,
@@ -40,16 +39,16 @@ function handleClick() {
       }"
       @click="handleClick"
     >
-      <span class="${compPrefix}__title">
+      <a-icon icon="caret-right" class="header-angle" />
+      <span :class="`${compPrefix}__title`">
         <slot name="title">
           {{ header }}
         </slot>
       </span>
-      <a-icon icon="angle-right" class="header-angle" />
     </div>
     <transition name="slide" v-on="transitionEvents">
-      <div class="${compPrefix}__wapper" v-show="isActive">
-        <div class="${compPrefix}__content" :id="`item-content-${atters.key}`">
+      <div :class="`${compPrefix}__wapper`" v-show="isActive">
+        <div :class="`${compPrefix}__content`" :id="`item-content-${key}`">
           <slot></slot>
         </div>
       </div>
