@@ -1,4 +1,4 @@
-import{f as B,w as f,u as T,e as w}from"./index-DQLiMaGX.js";import{e as a,t as x}from"./index-CP73LF6h.js";import"./vue.esm-bundler-MqSFIsM9.js";const C={title:"Example/Button",component:a,tags:["autodocs"],argTypes:{type:{control:{type:"select"},options:["primary","success","warning","danger","info",""]},size:{control:{type:"select"},options:["large","default","small",""]},plain:{control:"boolean"},circle:{control:"boolean"},round:{control:"boolean"},disabled:{control:"boolean"},loading:{control:"boolean"},useThrottle:{control:"boolean"},throttleDuration:{control:"number"},tag:{control:{type:"select"},options:["button","a","div"]},nativeType:{control:{type:"select"},options:["button","submit","reset",""]},icon:{control:{type:"text"}},loadingIcon:{control:{type:"text"}}},args:{onClick:B()}},r=t=>`
+import{f as B,w as f,u as T,e as w}from"./index-DQLiMaGX.js";import{A as a,a as x}from"./index-C614jT60.js";import"./vue.esm-bundler-Dx2DBTFS.js";const C={title:"Example/Button",component:a,tags:["autodocs"],argTypes:{type:{control:{type:"select"},options:["primary","success","warning","danger","info",""]},size:{control:{type:"select"},options:["large","default","small",""]},plain:{control:"boolean"},circle:{control:"boolean"},round:{control:"boolean"},disabled:{control:"boolean"},loading:{control:"boolean"},useThrottle:{control:"boolean"},throttleDuration:{control:"number"},tag:{control:{type:"select"},options:["button","a","div"]},nativeType:{control:{type:"select"},options:["button","submit","reset",""]},icon:{control:{type:"text"}},loadingIcon:{control:{type:"text"}}},args:{onClick:B()}},r=t=>`
 <div style="margin:5px">
   ${t}
 </div>
@@ -6,7 +6,7 @@ import{f as B,w as f,u as T,e as w}from"./index-DQLiMaGX.js";import{e as a,t as 
         <a-button round>13141</a-button>
         <a-button>13141</a-button>
         <a-button round>13141</a-button>
-      </a-button-group>`)})};var s,c,u;e.parameters={...e.parameters,docs:{...(s=e.parameters)==null?void 0:s.docs,source:{originalSource:`{
+      </a-button-group>`)})};var s,c,p;e.parameters={...e.parameters,docs:{...(s=e.parameters)==null?void 0:s.docs,source:{originalSource:`{
   argTypes: {
     content: {
       control: {
@@ -40,7 +40,7 @@ import{f as B,w as f,u as T,e as w}from"./index-DQLiMaGX.js";import{e as a,t as 
     });
     expect(args.onClick).toHaveBeenCalled();
   }
-}`,...(u=(c=e.parameters)==null?void 0:c.docs)==null?void 0:u.source}}};var p,l,i;o.parameters={...o.parameters,docs:{...(p=o.parameters)==null?void 0:p.docs,source:{originalSource:`{
+}`,...(p=(c=e.parameters)==null?void 0:c.docs)==null?void 0:p.source}}};var u,l,i;o.parameters={...o.parameters,docs:{...(u=o.parameters)==null?void 0:u.docs,source:{originalSource:`{
   args: {
     icon: 'search',
     circle: true,
