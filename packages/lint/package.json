@@ -1,0 +1,21 @@
+{
+  "name": "@arch-design/arch-ui-lint-config",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "@typescript-eslint/eslint-plugin": "^4.7.0",
+    "@typescript-eslint/parser": "^4.7.0",
+    "eslint": "7.17.0",
+    "eslint-config-airbnb-base": "14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-html": "6.1.1",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-vue": "7.4.1",
+    "vue-eslint-parser": "7.3.0"
+  }
+}

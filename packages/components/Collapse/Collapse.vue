@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui/_utils';
+import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui-vue/_utils';
 import type { CollapseEmits, CollapseProps, CollapseItemKey } from './type.d';
-import { ref, provide, watch } from 'vue';
+import { ref, provide, watch, watchEffect } from 'vue';
 import { COLLAPSE_CTX_KEY } from './constants';
 
 const compName = 'collapse';
@@ -10,15 +10,16 @@ const compPrefix = getPrefixCls(compName);
 defineOptions({
   name: getPrefixPascal(compName),
 });
+const x = null;
 
 const props = defineProps<CollapseProps>();
 const emit = defineEmits<CollapseEmits>();
 const activeKeys = ref(props.modelValue ?? props.activeKeys);
-if (props.accordion && activeKeys.value.length > 1) {
-  console.warn('在手风琴模式下，不能使用多个激活面板');
-}
+
 function handleItemClick(key: CollapseItemKey) {
-  if (!activeKeys.value || activeKeys.value.length === 0) return;
+  if (!activeKeys.value || activeKeys.value.length === 0) {
+    return;
+  }
 
   let _activeKeys = [...activeKeys.value];
   if (props.accordion) {
@@ -40,6 +41,12 @@ function updateActiveKeys(keys: CollapseItemKey[]) {
   emit('update:modelValue', keys);
   emit('change', keys);
 }
+watchEffect(() => {
+  if (props.accordion && activeKeys.value.length > 1) {
+    console.warn('在手风琴模式下，不能使用多个激活面板');
+    activeKeys.value.splice(1);
+  }
+});
 watch(
   () => props.modelValue,
   (val) => {

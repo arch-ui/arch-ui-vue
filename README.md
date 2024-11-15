@@ -1,4 +1,4 @@
-# @arch-design/arch-ui
+# @arch-design/arch-ui-vue
 
 类 arco-design UI库
 

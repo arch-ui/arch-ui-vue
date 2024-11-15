@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "\n\033[33m校验提交信息..."
+npx --no-install commitlint --edit "$1"

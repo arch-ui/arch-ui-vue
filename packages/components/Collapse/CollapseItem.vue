@@ -2,7 +2,7 @@
 import type { CollapseItemProps } from './type.d';
 import { computed, inject, getCurrentInstance } from 'vue';
 import { COLLAPSE_CTX_KEY } from './constants';
-import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui/_utils';
+import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui-vue/_utils';
 import AIcon from '../Icon/Icon.vue';
 import transitionEvents from './transitionEvents';
 
@@ -15,11 +15,13 @@ defineOptions({
 });
 
 const props = defineProps<CollapseItemProps>();
-const ctx = inject(COLLAPSE_CTX_KEY, void 0);
+const ctx = inject(COLLAPSE_CTX_KEY, undefined);
 const isActive = computed(() => ctx?.activeKeys.value?.includes(key.value));
 
 function handleClick() {
-  if (props.disabled) return;
+  if (props.disabled) {
+    return;
+  }
   ctx?.handleItemClick(key.value);
 }
 </script>

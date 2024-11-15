@@ -1,47 +1,44 @@
-import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3';
-import { fn, within, userEvent, expect } from '@storybook/test';
+import type { Meta, StoryObj } from '@storybook/vue3';
+import { ACollapse, ACollapseItem } from '@arch-design/arch-ui-vue';
 
-import { ACollapse, ACollapseItem } from '@arch-design/arch-ui';
-
-type Story = StoryObj<typeof ACollapse> & { argTypes?: ArgTypes };
+type Story = StoryObj<typeof ACollapse>;
 
 const meta: Meta<typeof ACollapse> = {
   title: 'Example/Collapse',
   component: ACollapse,
-  subcomponents: {
-    ACollapseItem,
-  },
+  subcomponents: { ACollapseItem },
   tags: ['autodocs'],
-  argTypes: {},
 };
 
-const container = (val: string) => `
-<div style="margin:5px">
-  ${val}
-</div>
-`;
-
 export const Default: Story = {
+  render: (args: any) => ({
+    components: {
+      ACollapse,
+      ACollapseItem,
+    },
+    setup() {
+      return {
+        args,
+      };
+    },
+    template: `
+    <a-collapse v-bind="args">
+      <a-collapse-item key="a" header="Title a">
+        <div>this is content a</div>
+      </a-collapse-item>
+      <a-collapse-item key="b" header="title b">
+        <div>this is content b2<br>this is content b2</div>
+      </a-collapse-item>
+      <a-collapse-item key="c" header="title c  disable" disabled>
+        <div>this is content c</div>
+      </a-collapse-item>
+    </a-collapse>
+    `,
+  }),
   args: {
     accordion: true,
-    modelValue: ['1'],
+    modelValue: ['a', 'b'],
   },
-  render: (args: any) => ({
-    components: { ACollapse, ACollapseItem },
-    setup() {
-      return { args };
-    },
-    template: container(
-      `<a-collapse v-bind="args">
-        <a-collapse-item key="1" header="title1">
-          content1
-        </a-collapse-item>
-        <a-collapse-item key="2" header="title2" disabled>
-          content2
-        </a-collapse-item>
-      </a-collapse>`
-    ),
-  }),
 };
 
 export default meta;

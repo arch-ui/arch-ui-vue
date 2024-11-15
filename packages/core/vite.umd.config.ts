@@ -15,14 +15,16 @@ export default defineConfig({
     rollupOptions: {
       external: ['vue'],
       output: {
-        exports: "named",
+        exports: 'named',
         globals: {
           vue: 'Vue',
         },
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'style.css') return 'index.css'
-          return assetInfo.name as string
-        }
+          if (assetInfo.name === 'style.css') {
+            return 'index.css';
+          }
+          return assetInfo.name as string;
+        },
       },
     },
   },

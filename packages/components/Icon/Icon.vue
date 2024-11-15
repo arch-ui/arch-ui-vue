@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui/_utils';
+import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui-vue/_utils';
 import type { IconProps } from './type';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { omit } from 'lodash-es';
@@ -14,16 +14,12 @@ defineOptions({
 const props = defineProps<IconProps>();
 const filterProps = computed(() => omit(props, ['type', 'color']));
 const customStyle = computed(() => ({
-  color: props.color ?? void 0,
+  color: props.color ?? undefined,
 }));
 </script>
 
 <template>
-  <i
-    :class="[`${compPrefix}`, type && `${compPrefix}-${type}`]"
-    :style="customStyle"
-    v-bind="$attrs"
-  >
+  <i :class="[`${compPrefix}`, type && `${compPrefix}-${type}`]" :style="customStyle" v-bind="$attrs">
     <font-awesome-icon v-bind="filterProps" />
   </i>
 </template>

@@ -1,4 +1,4 @@
-import { withInstall } from '@arch-design/arch-ui/_utils';
+import { withInstall } from '@arch-design/arch-ui-vue/_utils';
 import _Collapse from './Collapse.vue';
 import _CollapseItem from './CollapseItem.vue';
 

@@ -2,13 +2,13 @@ import type { Ref } from 'vue';
 export type CollapseItemKey = string | number;
 
 export interface CollapseProps {
-  modelValue:  CollapseItemKey[];
-  activeKeys?:  CollapseItemKey[];
+  modelValue: CollapseItemKey[];
+  activeKeys?: CollapseItemKey[];
   accordion?: boolean;
 }
 
 export interface CollapseItemProps {
-  key: CollapseItemKey;
+  // key: CollapseItemKey; TODO 这里不能定义key 否则会warn
   header: string;
   disabled?: boolean;
 }
@@ -19,6 +19,6 @@ export interface CollapseEmits {
 }
 
 export interface CollapseContext {
-  activeKeys: Ref< CollapseItemKey[]>;
+  activeKeys: Ref<CollapseItemKey[]>;
   handleItemClick(key: CollapseItemKey): void;
 }

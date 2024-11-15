@@ -1,7 +1,7 @@
 import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3';
 import { fn, within, userEvent, expect } from '@storybook/test';
 
-import { AButton, AButtonGroup } from '@arch-design/arch-ui';
+import { AButton, AButtonGroup } from '@arch-design/arch-ui-vue';
 
 type Story = StoryObj<typeof AButton> & { argTypes?: ArgTypes };
 
@@ -78,9 +78,7 @@ export const Default: Story & { args: { content: string } } = {
     setup() {
       return { args };
     },
-    template: container(
-      `<a-button data-testid="story-test-btn" v-bind="args">{{args.content}}</a-button>`
-    ),
+    template: container(`<a-button data-testid="story-test-btn" v-bind="args">{{args.content}}</a-button>`),
   }),
   play: async ({ canvasElement, args, step }) => {
     const canvas = within(canvasElement);

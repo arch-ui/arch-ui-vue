@@ -42,10 +42,10 @@ let packageData;
 // 开发环境的 package.json 配置
 const devPackageData = {
   main: './index.ts',
-  module: "",
-  types: "",
-  files: "",
-  sideEffects: "",
+  module: '',
+  types: '',
+  files: '',
+  sideEffects: '',
 };
 
 // 构建环境的 package.json 配置

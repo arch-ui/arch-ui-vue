@@ -4,19 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "pnpm --filter @arch-design/arch-ui build",
-    "storybook:dev": "pnpm --filter @arch-design/arch-ui useDev && pnpm --filter @arch-design/arch-ui-playground storybook",
+    "build": "pnpm --filter @arch-design/arch-ui-vue build",
+    "storybook:dev": "pnpm --filter @arch-design/arch-ui-vue useDev && pnpm --filter @arch-design/arch-ui-playground storybook",
     "storybook:build": "pnpm --filter @arch-design/arch-ui-playground build-storybook",
     "test": "cross-env NODE_ENV=test pnpm --filter @arch-design/arch-ui-components test",
-    "docs:dev": "pnpm --filter @arch-design/arch-ui useDev && pnpm --filter @arch-design/arch-ui-docs dev",
-    "docs:build": "pnpm --filter @arch-design/arch-ui-docs build"
+    "docs:dev": "pnpm --filter @arch-design/arch-ui-vue useDev && pnpm --filter @arch-design/arch-ui-docs dev",
+    "docs:build": "pnpm --filter @arch-design/arch-ui-docs build",
+    "prepare": "husky install",
+    "format": "prettier --write .",
+    "ts-check": "vue-tsc --noEmit -p tsconfig.json --composite false",
+    "lint": "eslint --ext .ts,.tsx,.js,.jsx,.vue --ignore-path .gitignore",
+    "lint:fix": "eslint --ext .ts,.tsx,.js,.jsx,.vue --ignore-path .gitignore --fix",
+    "precommit": "lint-staged"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@arch-design/arch-ui": "workspace:*",
     "@arch-design/arch-ui-components": "workspace:*",
+    "@arch-design/arch-ui-vue": "workspace:*",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/vue-fontawesome": "^3.0.8",
@@ -26,9 +32,11 @@
     "vue": "^3.4.27"
   },
   "devDependencies": {
+    "@arch-design/arch-ui-lint-config": "workspace:*",
+    "@commitlint/cli": "^13.2.1",
+    "@commitlint/config-conventional": "^13.2.0",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^20.12.12",
-    "@types/shelljs": "^0.8.15",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
     "@vitest/coverage-v8": "^1.4.0",
@@ -36,20 +44,31 @@
     "@vue/tsconfig": "^0.5.1",
     "cross-env": "^7.0.3",
     "cssnano": "^7.0.1",
+    "husky": "^7.0.2",
     "jsdom": "^24.0.0",
+    "lint-staged": "^15.2.10",
     "move-file-cli": "^3.0.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^3.3.3",
     "release-it": "^17.10.0",
     "rimraf": "^6.0.1",
     "rollup": "^4.18.0",
     "sass": "^1.80.6",
-    "shelljs": "^0.8.5",
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
     "vite-plugin-dts": "^3.9.1",
+    "vite-plugin-eslint": "^1.8.1",
     "vitest": "^1.6.0",
     "vue-tsc": "^1.8.27",
     "vue3-i18n": "^1.1.5"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,vue}": [
+      "prettier --write ."
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }

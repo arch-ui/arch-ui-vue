@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ButtonProps, ButtonEmits, ButtonInstance } from './type';
-import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui/_utils';
+import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui-vue/_utils';
 import { throttle } from 'lodash-es';
 import AIcon from '../Icon/Icon.vue';
 import { computed, inject, ref } from 'vue';
@@ -23,7 +23,7 @@ const emit = defineEmits<ButtonEmits>();
 
 const slots = defineSlots();
 
-const ctx = inject(BUTTON_GROUP_CTX_KEY, void 0);
+const ctx = inject(BUTTON_GROUP_CTX_KEY, undefined);
 const size = computed(() => ctx?.size ?? props?.size ?? '');
 const type = computed(() => ctx?.type ?? props?.type ?? '');
 const disabled = computed(() => ctx?.disabled || props?.disabled || false);
@@ -62,13 +62,7 @@ defineExpose<ButtonInstance>({
   >
     <template v-if="loading">
       <slot name="loading">
-        <a-icon
-          class="loading-icon"
-          :icon="loadingIcon ?? 'spinner'"
-          size="1x"
-          :style="iconStyle"
-          spin
-        />
+        <a-icon class="loading-icon" :icon="loadingIcon ?? 'spinner'" size="1x" :style="iconStyle" spin />
       </slot>
     </template>
     <template v-else-if="icon">
