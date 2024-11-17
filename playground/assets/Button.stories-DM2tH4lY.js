@@ -1,9 +1,10 @@
-import{w as v,u as x,e as z}from"./index-BflBC_Ux.js";import{W as o,x as f}from"./index-DnESmTSk.js";import"./vue.esm-bundler-Ck3M4qld.js";const E={title:"Example/Button",tags:["autodocs"],argTypes:{type:{control:{type:"select"},options:["primary","secondary","outline","text"]},status:{control:{type:"select"},options:["default","success","warning","danger","info"]},size:{control:{type:"select"},options:["large","default","small","mini"]},disabled:{control:"boolean"},loading:{control:"boolean"},tag:{control:{type:"select"},options:["button","a","div"]},htmlType:{control:{type:"select"},options:["button","submit","reset"]},icon:{control:{type:"text"}},loadingIcon:{control:{type:"text"}}}},s=t=>`
+import{w as v,u as x,e as z}from"./index-BflBC_Ux.js";import{W as o,x as f}from"./index-DVaQ6DbK.js";import"./vue.esm-bundler-Ck3M4qld.js";const E={title:"Example/Button",tags:["autodocs"],argTypes:{type:{control:{type:"select"},options:["primary","secondary","outline","text"]},status:{control:{type:"select"},options:["default","success","warning","danger","info"]},size:{control:{type:"select"},options:["large","default","small","mini"]},disabled:{control:"boolean"},loading:{control:"boolean"},tag:{control:{type:"select"},options:["button","a","div"]},htmlType:{control:{type:"select"},options:["button","submit","reset"]},icon:{control:{type:"text"}},loadingIcon:{control:{type:"text"}}}},s=t=>`
 <div style="margin:5px">
   ${t}
 </div>
 `,n={args:{content:"Button"},render:t=>({components:{AButton:o},setup(){return{args:t}},template:s(`
-      <a-button :type="args.type" 
+      <a-button 
+                :type="args.type" 
                 :status="args.status" 
                 :size="args.size" 
                 :disabled="args.disabled"
@@ -39,7 +40,8 @@ import{w as v,u as x,e as z}from"./index-BflBC_Ux.js";import{W as o,x as f}from"
       };
     },
     template: container(\`
-      <a-button :type="args.type" 
+      <a-button 
+                :type="args.type" 
                 :status="args.status" 
                 :size="args.size" 
                 :disabled="args.disabled"
