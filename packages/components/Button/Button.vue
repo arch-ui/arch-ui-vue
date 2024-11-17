@@ -15,8 +15,8 @@ defineOptions({
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   tag: 'button',
-  nativeType: 'button',
-  type: 'primary',
+  htmlType: 'button',
+  type: 'secondary',
 });
 
 const emit = defineEmits<ButtonEmits>();
@@ -24,21 +24,22 @@ const emit = defineEmits<ButtonEmits>();
 const slots = defineSlots();
 
 const ctx = inject(BUTTON_GROUP_CTX_KEY, undefined);
-const size = computed(() => ctx?.size ?? props?.size ?? '');
 const type = computed(() => ctx?.type ?? props?.type ?? '');
+const size = computed(() => ctx?.size ?? props?.size ?? '');
+const status = computed(() => ctx?.status ?? props?.status ?? '');
 const disabled = computed(() => ctx?.disabled || props?.disabled || false);
 const _ref = ref<HTMLButtonElement | void>();
 const iconStyle = computed(() => ({ marginRight: slots.default ? '6px' : '0px' }));
 
 const handleBtnClick = (e: MouseEvent) => emit('click', e);
-
-const handleBtnClickThrottle = throttle(handleBtnClick, props.throttleDuration);
+console.log(props);
 
 defineExpose<ButtonInstance>({
   ref: _ref,
   disabled,
-  size,
   type,
+  size,
+  status,
 });
 </script>
 
@@ -46,19 +47,17 @@ defineExpose<ButtonInstance>({
   <component
     :is="tag"
     ref="_ref"
-    :type="tag === 'button' ? nativeType : 0"
-    :disabled="disabled || loading ? true : 0"
+    :type="tag === 'button' ? htmlType : undefined"
+    :disabled="disabled || loading ? true : undefined"
     :class="{
       [`${compPrefix}`]: compPrefix,
       [`${compPrefix}--${type}`]: type,
       [`${compPrefix}--${size}`]: size,
-      'is-plain': plain,
-      'is-round': round,
-      'is-circle': circle,
+      [`${compPrefix}-status--${status}`]: status,
       'is-disabled': disabled,
       'is-loading': loading,
     }"
-    @click="(e: MouseEvent) => (useThrottle ? handleBtnClickThrottle(e) : handleBtnClick(e))"
+    @click="handleBtnClick"
   >
     <template v-if="loading">
       <slot name="loading">

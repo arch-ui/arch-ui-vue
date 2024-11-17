@@ -10,7 +10,6 @@ const compPrefix = getPrefixCls(compName);
 defineOptions({
   name: getPrefixPascal(compName),
 });
-const x = null;
 
 const props = defineProps<CollapseProps>();
 const emit = defineEmits<CollapseEmits>();

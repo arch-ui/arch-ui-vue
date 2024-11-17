@@ -3,18 +3,12 @@
 $icon-prefix-cls: '#{$prefix}-icon';
 
 .#{$icon-prefix-cls} {
-  --er-icon-color: inherit;
+  --icon-color: inherit;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   position: relative;
   fill: currentColor;
-  color: var(--#{$icon-prefix-cls}-color);
+  color: var(--icon-color);
   font-size: inherit;
-}
-
-@each $val in primary, info, success, warning, danger {
-  .#{$icon-prefix-cls}--#{$val} {
-    --#{$icon-prefix-cls}-color: var(--#{$icon-prefix-cls}-#{$val});
-  }
 }

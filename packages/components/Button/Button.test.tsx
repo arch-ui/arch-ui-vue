@@ -8,9 +8,20 @@ import ButtonGroup from './ButtonGroup.vue';
 const compName = ['button', 'button-group'];
 
 describe('Button.vue', () => {
+  // Props: status
+  it('should has the correct status class when status prop is set', () => {
+    const statusArr = ['primary', 'success', 'warning', 'danger', 'info'];
+    statusArr.forEach((status) => {
+      const wrapper = mount(Button, {
+        props: { status: status as any },
+      });
+      expect(wrapper.classes()).toContain(`${getPrefixCls(compName[0])}-status--${status}`);
+    });
+  });
+
   // Props: type
   it('should has the correct type class when type prop is set', () => {
-    const types = ['primary', 'success', 'warning', 'danger', 'info'];
+    const types = ['primary', 'secondary', 'outline', 'text'];
     types.forEach((type) => {
       const wrapper = mount(Button, {
         props: { type: type as any },
@@ -21,7 +32,7 @@ describe('Button.vue', () => {
 
   // Props: size
   it('should has the correct size class when size prop is set', () => {
-    const sizes = ['large', 'default', 'small'];
+    const sizes = ['large', 'default', 'small', 'mini'];
     sizes.forEach((size) => {
       const wrapper = mount(Button, {
         props: { size: size as any },
@@ -32,9 +43,6 @@ describe('Button.vue', () => {
 
   // Props: plain, round, circle
   it.each([
-    ['plain', 'is-plain'],
-    ['round', 'is-round'],
-    ['circle', 'is-circle'],
     ['disabled', 'is-disabled'],
     ['loading', 'is-loading'],
   ])('should has the correct class when prop %s is set to true', (prop, className) => {
@@ -46,7 +54,7 @@ describe('Button.vue', () => {
 
   it('should has the correct native type attribute when native-type prop is set', () => {
     const wrapper = mount(Button, {
-      props: { nativeType: 'submit' },
+      props: { htmlType: 'submit' },
     });
     expect(wrapper.element.tagName).toBe('BUTTON');
     expect((wrapper.element as any).type).toBe('submit');
@@ -71,28 +79,6 @@ describe('Button.vue', () => {
     const wrapper = mount(Button, {});
     await wrapper.trigger('click');
     expect(wrapper.emitted().click).toHaveLength(1);
-  });
-
-  // Test the click event with and without throttle
-  it.each([
-    ['withoutThrottle', false],
-    ['withThrottle', true],
-  ])('emits click event %s', async (_, useThrottle) => {
-    const clickSpy = vi.fn();
-    const wrapper = mount(() => (
-      <Button
-        onClick={clickSpy}
-        {...{
-          useThrottle,
-          throttleDuration: 400,
-        }}
-      />
-    ));
-
-    await wrapper.get('button').trigger('click');
-    await wrapper.get('button').trigger('click');
-    await wrapper.get('button').trigger('click');
-    expect(clickSpy).toBeCalledTimes(useThrottle ? 1 : 3);
   });
 
   // Exception Handling: loading state
@@ -123,7 +109,7 @@ describe('ButtonGroup.vue', () => {
   });
 
   test('button group size', () => {
-    const sizes = ['large', 'default', 'small'];
+    const sizes = ['large', 'default', 'small', 'mini'];
     sizes.forEach((size) => {
       const wrapper = mount(() => (
         <ButtonGroup size={size as any}>
@@ -137,18 +123,18 @@ describe('ButtonGroup.vue', () => {
     });
   });
 
-  test('button group type', () => {
-    const types = ['primary', 'success', 'warning', 'danger', 'info'];
-    types.forEach((type) => {
+  test('button group status', () => {
+    const statusArr = ['primary', 'success', 'warning', 'danger', 'info'];
+    statusArr.forEach((status) => {
       const wrapper = mount(() => (
-        <ButtonGroup type={type as any}>
+        <ButtonGroup status={status as any}>
           <Button>button 1</Button>
           <Button>button 2</Button>
         </ButtonGroup>
       ));
 
       const buttonWrapper = wrapper.findComponent(Button);
-      expect(buttonWrapper.classes()).toContain(`${getPrefixCls(compName[0])}--${type}`);
+      expect(buttonWrapper.classes()).toContain(`${getPrefixCls(compName[0])}-status--${status}`);
     });
   });
 

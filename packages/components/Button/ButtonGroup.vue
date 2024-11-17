@@ -18,6 +18,7 @@ provide(
   reactive({
     size: toRef(props, 'size'),
     type: toRef(props, 'type'),
+    status: toRef(props, 'status'),
     disabled: toRef(props, 'disabled'),
   })
 );

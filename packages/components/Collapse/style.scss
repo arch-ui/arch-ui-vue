@@ -3,18 +3,18 @@
 $collapse-prefix-cls: '#{$prefix}-collapse';
 
 .#{$collapse-prefix-cls} {
-  --#{$collapse-prefix-cls}-border-radius: var(--#{$prefix}-border-radius-base);
-  --#{$collapse-prefix-cls}-border-color: var(--#{$prefix}-border-color-light);
-  --#{$collapse-prefix-cls}-header-bg-color: var(--#{$prefix}-fill-color-blank);
-  --#{$collapse-prefix-cls}-header-text-color: var(--#{$prefix}-text-color-primary);
-  --#{$collapse-prefix-cls}-header-font-size: 13px;
-  --#{$collapse-prefix-cls}-content-bg-color: var(--#{$prefix}-fill-color-dark);
-  --#{$collapse-prefix-cls}-content-font-size: 13px;
-  --#{$collapse-prefix-cls}-content-text-color: var(--#{$prefix}-text-color-primary);
-  --#{$collapse-prefix-cls}-disabled-text-color: var(--#{$prefix}-disabled-text-color);
-  --#{$collapse-prefix-cls}-disabled-border-color: var(--#{$prefix}-border-color-lighter);
-  border-radius: var(--#{$collapse-prefix-cls}-border-radius);
-  border: 1px solid var(--#{$collapse-prefix-cls}-border-color);
+  --border-radius: var(--#{$prefix}-border-radius-base);
+  --border-color: var(--#{$prefix}-border-color-light);
+  --header-bg-color: var(--#{$prefix}-fill-color-blank);
+  --header-text-color: var(--#{$prefix}-text-color-primary);
+  --header-font-size: 13px;
+  --content-bg-color: var(--#{$prefix}-fill-color-dark);
+  --content-font-size: 13px;
+  --content-text-color: var(--#{$prefix}-text-color-primary);
+  --disabled-text-color: var(--#{$prefix}-disabled-text-color);
+  --disabled-border-color: var(--#{$prefix}-border-color-lighter);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
   overflow: hidden;
 }
 
@@ -23,16 +23,16 @@ $collapse-prefix-cls: '#{$prefix}-collapse';
   align-items: center;
   justify-content: flex-start;
   padding: 10px 15px;
-  background-color: var(--#{$collapse-prefix-cls}-header-bg-color);
-  color: var(--#{$collapse-prefix-cls}-header-text-color);
+  background-color: var(--header-bg-color);
+  color: var(--header-text-color);
   cursor: pointer;
-  font-size: var(--#{$collapse-prefix-cls}-header-font-size);
+  font-size: var(--header-font-size);
   font-weight: 500;
   transition: border-bottom-color var(--#{$prefix}-transition-duration);
   outline: none;
 
   &.is-disabled {
-    color: var(--#{$collapse-prefix-cls}-disabled-text-color);
+    color: var(--disabled-text-color);
     cursor: not-allowed;
     background-image: none;
   }
@@ -56,17 +56,17 @@ $collapse-prefix-cls: '#{$prefix}-collapse';
 }
 
 .#{$collapse-prefix-cls}-item + .#{$collapse-prefix-cls}-item {
-  border-top: 1px solid var(--#{$collapse-prefix-cls}-border-color);
+  border-top: 1px solid var(--border-color);
 }
 
 .#{$collapse-prefix-cls}-item__content {
   will-change: height;
-  background-color: var(--#{$collapse-prefix-cls}-content-bg-color);
+  background-color: var(--content-bg-color);
   overflow: hidden;
   box-sizing: border-box;
-  font-size: var(--#{$collapse-prefix-cls}-content-font-size);
-  color: var(--#{$collapse-prefix-cls}-content-text-color);
-  border-bottom: 1px solid var(--#{$collapse-prefix-cls}-border-color);
+  font-size: var(--content-font-size);
+  color: var(--content-text-color);
+  border-bottom: 1px solid var(--border-color);
   padding: 7px 7px 7px 27px;
 }
 

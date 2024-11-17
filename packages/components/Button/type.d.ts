@@ -1,8 +1,10 @@
 import type { Component, Ref } from 'vue';
 
-export type ButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info';
-export type NativeType = 'button' | 'submit' | 'reset';
-export type ButtonSize = 'large' | 'normal' | 'small';
+/** 参考 arco-design-vue https://arco.design/vue/component/button#API */
+export type ButtonType = '' | 'primary' | 'secondary' | 'outline' | 'text';
+export type ButtonStatus = '' | 'success' | 'warning' | 'danger' | 'info';
+export type HtmlType = 'button' | 'submit' | 'reset';
+export type ButtonSize = 'mini' | 'small' | 'default' | 'large';
 
 export interface ButtonProps {
   /**
@@ -16,12 +18,20 @@ export interface ButtonProps {
    * @property type
    * @type ButtonType
    * @description 按钮类型
-   * @default "info"
+   * @default "secondary"
    */
   type?: ButtonType;
   /**
+   * @property status
+   * @type ButtonStatus
+   * @description 按钮状态
+   * @default ""
+   */
+  status?: ButtonStatus;
+  /**
    * @description 按钮尺寸
-   * @default "-"
+   * @type ButtonSize
+   * @default "medium"
    */
   size?: ButtonSize;
   /**
@@ -29,7 +39,7 @@ export interface ButtonProps {
    * @default "button"
    * @type 'button'|'reset'|'submit'
    */
-  nativeType?: NativeType;
+  htmlType?: HtmlType;
   /**
    * @description 是否禁用
    * @default false
@@ -46,35 +56,10 @@ export interface ButtonProps {
    */
   icon?: string;
   /**
-   * @description 是否为圆形按钮
-   * @default false
-   */
-  circle?: boolean;
-  /**
-   * @description 是否为朴素按钮
-   * @default false
-   */
-  plain?: boolean;
-  /**
-   * @description 是否为圆角按钮
-   * @default false
-   */
-  round?: boolean;
-  /**
    * @description 自定义加载中状态图标组件
    * @default "spinner"
    */
   loadingIcon?: string;
-  /**
-   * @description 是否开启节流
-   * @default true
-   */
-  useThrottle?: boolean;
-  /**
-   * @description 节流模式下，节流时间间隔(ms)
-   * @default 500
-   */
-  throttleDuration?: number;
 }
 
 export interface ButtonEmits {
@@ -84,18 +69,21 @@ export interface ButtonEmits {
 export interface ButtonInstance {
   ref: Ref<HTMLButtonElement | void>;
   disabled: ComputedRef<boolean>;
-  size: ComputedRef<ButtonSize | ''>;
   type: ComputedRef<ButtonType | ''>;
+  size: ComputedRef<ButtonSize | ''>;
+  status: ComputedRef<ButtonStatus | ''>;
 }
 
 export interface ButtonGroupProps {
   size?: ButtonSize;
   type?: ButtonType;
+  status?: ButtonStatus;
   disabled?: boolean;
 }
 
 export interface ButtonGroupContext {
   size?: ButtonSize;
   type?: ButtonType;
+  status?: ButtonStatus;
   disabled?: boolean;
 }
