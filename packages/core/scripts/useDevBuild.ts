@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 const filePath = path.join(__dirname, '../package.json');
 
 // 异步读取 package.json 文件
-async function readPackageJSON(file) {
+async function readPackageJSON(file: any) {
   try {
     const data = await fs.readFile(file, 'utf-8');
     return JSON.parse(data);
@@ -21,7 +21,7 @@ async function readPackageJSON(file) {
 }
 
 // 异步写入 package.json 文件
-async function writePackageJSON(file, data) {
+async function writePackageJSON(file: any, data: any) {
   try {
     const jsonData = JSON.stringify(data, null, 2);
     await fs.writeFile(file, jsonData, 'utf-8');
@@ -31,25 +31,25 @@ async function writePackageJSON(file, data) {
   }
 }
 
-// 初始化 packageData
-let packageData;
+// 初始化 packageConfig
+let packageConfig: any;
 
-// 异步读取 package.json 并初始化 packageData
+// 异步读取 package.json 并初始化 packageConfig
 (async () => {
-  packageData = await readPackageJSON(filePath);
+  packageConfig = await readPackageJSON(filePath);
 })();
 
 // 开发环境的 package.json 配置
-const devPackageData = {
+const devPackageConfig = {
   main: './index.ts',
   module: '',
   types: '',
   files: '',
-  sideEffects: '',
+  sideEffects: [],
 };
 
 // 构建环境的 package.json 配置
-const buildPackageData = {
+const buildPackageConfig = {
   main: './dist/umd/index.umd.cjs',
   module: './dist/es/index.js',
   types: './dist/types/core/index.d.ts',
@@ -59,23 +59,23 @@ const buildPackageData = {
 
 // 导出用于开发环境的函数
 export const useDev = async () => {
-  if (!packageData) {
-    packageData = await readPackageJSON(filePath);
+  if (!packageConfig) {
+    packageConfig = await readPackageJSON(filePath);
   }
   await writePackageJSON(filePath, {
-    ...packageData,
-    ...devPackageData,
+    ...packageConfig,
+    ...devPackageConfig,
   });
 };
 
 // 导出用于构建环境的函数
 export const useBuild = async () => {
-  if (!packageData) {
-    packageData = await readPackageJSON(filePath);
+  if (!packageConfig) {
+    packageConfig = await readPackageJSON(filePath);
   }
   await writePackageJSON(filePath, {
-    ...packageData,
-    ...buildPackageData,
+    ...packageConfig,
+    ...buildPackageConfig,
   });
 };
 
@@ -87,5 +87,5 @@ if (args.includes('dev')) {
 } else if (args.includes('build')) {
   useBuild().catch(console.error);
 } else {
-  console.log('Please specify "dev" or "build" as an argument.');
+  console.log('请输入 "dev" 或 "build" 命令');
 }

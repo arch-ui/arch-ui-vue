@@ -7,16 +7,17 @@
   "module": "",
   "types": "",
   "files": "",
-  "sideEffects": "",
+  "sideEffects": [],
   "scripts": {
-    "build": "run-s clean build-only",
-    "build-only": "run-p useBuild build-es build-umd",
+    "build": "run-s clean useBuild build-only",
+    "build-only": "run-p build-es build-umd",
     "build-umd": "vite build --config vite.umd.config.ts",
     "build-es": "vite build --config vite.es.config.ts",
     "clean": "rimraf dist",
     "release": "release-it",
-    "useDev": "node ./scripts/useDevBuild dev",
-    "useBuild": "node ./scripts/useDevBuild build"
+    "useDev": "npx tsx ./scripts/useDevBuild dev",
+    "useBuild": "npx tsx ./scripts/useDevBuild build",
+    "new": "npx tsx ./scripts/createComponent"
   },
   "keywords": [],
   "author": "",

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { ButtonProps, ButtonEmits, ButtonInstance } from './type';
 import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui-vue/_utils';
-import { throttle } from 'lodash-es';
 import AIcon from '../Icon/Icon.vue';
 import { computed, inject, ref } from 'vue';
 import { BUTTON_GROUP_CTX_KEY } from './constants';
