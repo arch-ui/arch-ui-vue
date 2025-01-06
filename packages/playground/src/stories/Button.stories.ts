@@ -6,7 +6,7 @@ import { AButton, AButtonGroup } from '@arch-design/arch-ui-vue';
 // type Story = StoryObj<typeof AButton> & { argTypes?: ArgTypes };
 
 const meta: Meta = {
-  title: 'Example/Button',
+  title: 'Components/Button',
   // component: AButton, // TODO 这里 组件的类型会和argTypes冲突
   tags: ['autodocs'],
   argTypes: {
@@ -53,7 +53,7 @@ const container = (val: string) => `
 
 export const Default = {
   args: {
-    content: 'Button',
+    default: 'Button',
   },
   render: (args: any) => ({
     components: { AButton },
@@ -69,7 +69,9 @@ export const Default = {
                 :loading="args.loading"
                 :icon="args.icon"
       >
-        {{args.content}}
+        <template #default>
+          <div v-html="args.default"></div>
+        </template>
       </a-button>
       `),
   }),

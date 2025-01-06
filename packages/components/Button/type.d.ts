@@ -87,3 +87,8 @@ export interface ButtonGroupContext {
   status?: ButtonStatus;
   disabled?: boolean;
 }
+
+export interface ButtonSlots {
+  default?: () => JSX.Element;
+  loading?: () => JSX.Element;
+}

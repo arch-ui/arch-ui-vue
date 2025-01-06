@@ -46,3 +46,37 @@ export function getTestComponent(comp: string) {
 export function getTypeContent(comp: string) {
   return ``;
 }
+
+export function getStorybookContent(comp: string) {
+  const kebabComp = pascalToKebab(`A${comp}`);
+  return `
+  import { A${comp} } from '@arch-design/arch-ui-vue';
+import type { Meta, StoryObj } from '@storybook/vue3';
+
+type Story = StoryObj<typeof A${comp}>;
+
+const meta: Meta<typeof A${comp}> = {
+  title: 'Example/${comp}',
+  component: A${comp},
+  tags: ['autodocs'],
+};
+
+export const Default: Story = {
+  render: (args: any) => ({
+    components: {
+      A${comp},
+    },
+    setup() {
+      return {
+        args,
+      };
+    },
+    template: ${'`'}
+      ${`<${kebabComp}></${kebabComp}>`}
+    ${'`'},
+  }),
+};
+
+export default meta;
+  `;
+}

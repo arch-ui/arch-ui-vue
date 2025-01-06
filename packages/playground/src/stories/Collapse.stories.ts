@@ -4,7 +4,7 @@ import { ACollapse, ACollapseItem } from '@arch-design/arch-ui-vue';
 type Story = StoryObj<typeof ACollapse>;
 
 const meta: Meta<typeof ACollapse> = {
-  title: 'Example/Collapse',
+  title: 'Components/Collapse',
   component: ACollapse,
   subcomponents: { ACollapseItem },
   tags: ['autodocs'],

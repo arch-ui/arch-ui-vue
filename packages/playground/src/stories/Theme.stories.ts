@@ -4,7 +4,7 @@ import { watch } from 'vue';
 import { AButton } from '@arch-design/arch-ui-vue';
 
 const meta: Meta = {
-  title: 'Example/Theme',
+  title: 'Components/Theme',
   argTypes: {
     primary: {
       control: { type: 'color' },
@@ -22,6 +22,7 @@ const meta: Meta = {
       control: { type: 'color' },
     },
   },
+  tags: ['autodocs'],
 };
 
 export const Default = {

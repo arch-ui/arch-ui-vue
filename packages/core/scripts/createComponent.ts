@@ -10,6 +10,7 @@ import {
   getComponentContent,
   getTestComponent,
   getTypeContent,
+  getStorybookContent,
 } from './components.template';
 
 const spinner = ora(`新建组件中`).start();
@@ -20,6 +21,7 @@ function main() {
   try {
     const component = getComponentName();
     createComponentFiles(component);
+    createStorybookFile(component);
     addToIndex(component);
     spinner.succeed(`已成功新建 ${component} 组件\n`);
   } catch (e) {
@@ -66,7 +68,7 @@ function getComponentName(): string {
 }
 
 // 在packages/components下创建组件目录
-async function createComponentFiles(component: string) {
+function createComponentFiles(component: string) {
   const projectPath = getProjectPath();
   const compsPath = path.join(projectPath, 'packages/components');
 
@@ -92,6 +94,19 @@ async function createComponentFiles(component: string) {
 
   const testPath = path.join(componentFolder, `${component}.test.tsx`);
   fs.writeFileSync(testPath, getTestComponent(component));
+}
+
+function createStorybookFile(component: string) {
+  const projectPath = getProjectPath();
+  const playgroundPath = path.join(projectPath, 'packages/playground');
+  const storybookFile = path.join(playgroundPath, `./src/stories/${component}.stories.ts`);
+
+  if (fs.existsSync(storybookFile)) {
+    spinner.fail('组件storybook已存在\n');
+    process.exit(1);
+  }
+
+  fs.writeFileSync(storybookFile, getStorybookContent(component));
 }
 
 // 添加组件到导出入口

@@ -8,7 +8,6 @@
 
 演练场：[https://arch-desgin.github.io/arch-ui-vue/playground](https://arch-desgin.github.io/arch-ui-vue/playground)
 
-
 ## 亮点
 
 这里简单记一下，包括针对这些亮点可能的提问：
@@ -18,7 +17,7 @@
     - 疑问1: 为啥使用interface 而不是 type
   - 组件支持高度定制化
     - 疑问1: 为什么使用Design Token，能介绍下[Design Token](https://juejin.cn/post/7257708221360111675) 么
-    - 疑问2: sass 的作用是什么，为什么要配置统一的前缀prefix 
+    - 疑问2: sass 的作用是什么，为什么要配置统一的前缀prefix
 - 合理分配架构
   - 使用pnpm + monorepo
     - 疑问1：为什么使用pnpm + monorepo 而不是 yarn + lerna
@@ -34,6 +33,7 @@
     - 使用 tsx xxx 运行 ts 脚本
     - 使用 useDevBuild.ts 切换 package.json 配置
     - 使用 createComponent.ts 自动创建组件
+    - 知识点：npm script 生命周期
   - Github Action
     - push 后自动进行 lint、test检查
     - 打包 components 并 打包部署vitepress 和 storybook

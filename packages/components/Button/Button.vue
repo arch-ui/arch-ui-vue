@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ButtonProps, ButtonEmits, ButtonInstance } from './type';
+import type { ButtonProps, ButtonEmits, ButtonInstance, ButtonSlots } from './type';
 import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui-vue/_utils';
 import AIcon from '../Icon/Icon.vue';
 import { computed, inject, ref } from 'vue';
@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
 
 const emit = defineEmits<ButtonEmits>();
 
-const slots = defineSlots();
+const slots = defineSlots<ButtonSlots>();
 
 const ctx = inject(BUTTON_GROUP_CTX_KEY, undefined);
 const type = computed(() => ctx?.type ?? props?.type ?? '');
@@ -31,7 +31,6 @@ const _ref = ref<HTMLButtonElement | void>();
 const iconStyle = computed(() => ({ marginRight: slots.default ? '6px' : '0px' }));
 
 const handleBtnClick = (e: MouseEvent) => emit('click', e);
-console.log(props);
 
 defineExpose<ButtonInstance>({
   ref: _ref,

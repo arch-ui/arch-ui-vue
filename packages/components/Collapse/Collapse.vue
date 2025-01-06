@@ -64,6 +64,6 @@ provide(COLLAPSE_CTX_KEY, {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @use './style.scss' as *;
 </style>
