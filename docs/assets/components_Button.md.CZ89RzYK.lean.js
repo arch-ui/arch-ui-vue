@@ -1,0 +1,1 @@
+import{_ as t,c as e,o}from"./chunks/framework.BsXBVO3g.js";const i=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"components/Button.md","filePath":"components/Button.md"}'),n={name:"components/Button.md"};function a(s,c,r,p,m,_){return o(),e("div")}const f=t(n,[["render",a]]);export{i as __pageData,f as default};
