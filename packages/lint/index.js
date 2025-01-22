@@ -1,12 +1,17 @@
 /* eslint-env node */
 module.exports = {
+  parser: 'vue-eslint-parser',
+  parserOptions: {
+    parser: '@typescript-eslint/parser',
+    sourceType: 'module',
+    ecmaVersion: 2020,
+  },
   env: {
     browser: true,
-    amd: true,
     node: true,
     es6: true,
   },
-  plugins: ['vue'],
+  plugins: ['vue', '@typescript-eslint'],
   extends: ['prettier'],
   rules: {
     //缩进采用两空格
@@ -31,7 +36,6 @@ module.exports = {
     'no-shadow': 'off',
     //不允许在变量定义之前使用它们
     'no-use-before-define': 'warn',
-    '@typescript-eslint/no-use-before-define': 'warn',
     //禁止出现未使用过的表达式
     'no-unused-expressions': 'off',
     'no-console': 'off',
@@ -44,7 +48,10 @@ module.exports = {
     'implicit-arrow-linebreak': 'off',
     //嵌套的三元表达式
     'no-nested-ternary': 'off',
-    'no-magic-numbers': ['warn', { ignore: [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1000, 1024] }],
+    'no-magic-numbers': [
+      'warn',
+      { ignore: [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1000, 1024] },
+    ],
     //取消对文件扩展名的验证
     'import/extensions': 'off',
     'import/no-duplicates': 'off',
@@ -64,7 +71,11 @@ module.exports = {
     'vue/max-attributes-per-line': 'off',
     camelcase: 'off',
     '@typescript-eslint/camelcase': ['off', { properties: 'never' }],
-    'lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }],
+    'lines-between-class-members': [
+      'error',
+      'always',
+      { exceptAfterSingleLine: true },
+    ],
     '@typescript-eslint/class-name-casing': 'off',
     '@typescript-eslint/restrict-plus-operands': 'off',
     'no-restricted-globals': 'off',

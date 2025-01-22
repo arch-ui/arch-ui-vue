@@ -14,8 +14,8 @@
     "prepare": "husky install",
     "format": "prettier --write .",
     "ts-check": "vue-tsc --noEmit -p tsconfig.json --composite false",
-    "lint": "eslint --ext .ts,.tsx,.js,.jsx,.vue --ignore-path .gitignore",
-    "lint:fix": "eslint --ext .ts,.tsx,.js,.jsx,.vue --ignore-path .gitignore --fix",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.vue --ignore-path .gitignore",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.vue --ignore-path .gitignore --fix",
     "precommit": "lint-staged"
   },
   "keywords": [],
@@ -66,8 +66,10 @@
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,vue}": [
-      "prettier --write ."
-    ]
+      "eslint --fix --ignore-path .gitignore",
+      "prettier --write --ignore-unknown"
+    ],
+    "!(*.ts|*.tsx|*.js|*.jsx|*.vue)": "prettier --write --ignore-unknown"
   },
   "commitlint": {
     "extends": [
