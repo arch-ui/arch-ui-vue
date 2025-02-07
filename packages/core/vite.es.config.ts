@@ -21,7 +21,9 @@ function importCssPlugin(): Plugin {
     apply: 'build',
     enforce: 'post',
     renderChunk(code, chunk) {
-      const isVueSFC = /^(?!.*node_modules)(?!.*_virtual).*\.vue\.js$/i.test(chunk.fileName);
+      const isVueSFC = /^(?!.*node_modules)(?!.*_virtual).*\.vue\.js$/i.test(
+        chunk.fileName
+      );
       if (chunk.isEntry || chunk.type !== 'chunk' || !isVueSFC) {
         return null;
       }
@@ -83,12 +85,6 @@ export default defineConfig({
         manualChunks(id) {
           if (id.includes('node_modules')) {
             return 'vendor';
-          }
-          if (id.includes('/packages/hooks')) {
-            return 'hooks';
-          }
-          if (id.includes('/packages/utils') || id.includes('plugin-vue:export-helper')) {
-            return 'utils';
           }
           // 对组件分包，可以按需导入
           for (const dirName of getDirectoriesSync('../components')) {

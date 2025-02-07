@@ -1,6 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { h } from 'vue';
+// TODO 使用 @arch-design/arch-ui-vue 时需要注意是 dev 模式，build模式无法引入
 import { ACollapse, ACollapseItem } from '@arch-design/arch-ui-vue';
 import { getPrefixCls } from '@arch-design/arch-ui-vue/_utils';
 
@@ -14,8 +15,12 @@ describe('Collapse.vue', () => {
       },
       slots: {
         default: [
-          h(ACollapseItem, { key: 'a', header: 'Title a' }, () => h('div', 'this is content a')),
-          h(ACollapseItem, { key: 'b', header: 'Title b' }, () => h('div', 'this is content b')),
+          h(ACollapseItem, { key: 'a', header: 'Title a' }, () =>
+            h('div', 'this is content a')
+          ),
+          h(ACollapseItem, { key: 'b', header: 'Title b' }, () =>
+            h('div', 'this is content b')
+          ),
         ],
       },
     });
@@ -31,8 +36,12 @@ describe('Collapse.vue', () => {
       },
       slots: {
         default: [
-          h(ACollapseItem, { key: 'a', header: 'Title a' }, () => h('div', 'this is content a')),
-          h(ACollapseItem, { key: 'b', header: 'Title b' }, () => h('div', 'this is content b')),
+          h(ACollapseItem, { key: 'a', header: 'Title a' }, () =>
+            h('div', 'this is content a')
+          ),
+          h(ACollapseItem, { key: 'b', header: 'Title b' }, () =>
+            h('div', 'this is content b')
+          ),
         ],
       },
     });
@@ -52,8 +61,12 @@ describe('Collapse.vue', () => {
       },
       slots: {
         default: [
-          h(ACollapseItem, { key: 'a', header: 'Title a' }, () => h('div', 'this is content a')),
-          h(ACollapseItem, { key: 'b', header: 'Title b' }, () => h('div', 'this is content b')),
+          h(ACollapseItem, { key: 'a', header: 'Title a' }, () =>
+            h('div', 'this is content a')
+          ),
+          h(ACollapseItem, { key: 'b', header: 'Title b' }, () =>
+            h('div', 'this is content b')
+          ),
         ],
       },
     });
@@ -73,7 +86,11 @@ describe('Collapse.vue', () => {
       },
       slots: {
         default: [
-          h(ACollapseItem, { key: 'a', header: 'Title a', disabled: true }, () => h('div', 'this is content a')),
+          h(
+            ACollapseItem,
+            { key: 'a', header: 'Title a', disabled: true },
+            () => h('div', 'this is content a')
+          ),
         ],
       },
     });

@@ -59,11 +59,19 @@
     */
     // TODO 低兼容性 使用 CSS 的 color-mix() 函数生成颜色
     @for $i from 1 through 9 {
-      --#{$prefix}-color-#{$val}-light-#{$i}: color-mix(in srgb, white #{$i * 10%}, #{$color});
+      --#{$prefix}-color-#{$val}-light-#{$i}: color-mix(
+        in srgb,
+        white #{$i * 10%},
+        #{$color}
+      );
     }
 
     @for $i from 1 through 9 {
-      --#{$prefix}-color-#{$val}-dark-#{$i}: color-mix(in srgb, black #{$i * 10%}, #{$color});
+      --#{$prefix}-color-#{$val}-dark-#{$i}: color-mix(
+        in srgb,
+        black #{$i * 10%},
+        #{$color}
+      );
     }
   }
 
@@ -71,7 +79,8 @@
   --#{$prefix}-border-width: 1px;
   --#{$prefix}-border-style: solid;
   --#{$prefix}-border-color-hover: var(--#{$prefix}-text-color-disabled);
-  --#{$prefix}-border: var(--#{$prefix}-border-width) var(--#{$prefix}-border-style) var(--#{$prefix}-border-color);
+  --#{$prefix}-border: var(--#{$prefix}-border-width)
+    var(--#{$prefix}-border-style) var(--#{$prefix}-border-color);
   --#{$prefix}-border-radius-small: 2px;
   --#{$prefix}-border-radius-base: 4px;
   --#{$prefix}-border-radius-large: 8px;
@@ -84,8 +93,9 @@
   --#{$prefix}-font-size-base: 14px;
   --#{$prefix}-font-size-small: 13px;
   --#{$prefix}-font-size-extra-small: 12px;
-  --#{$prefix}-font-family: Inter, '-apple-system', BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'noto sans',
-    'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --#{$prefix}-font-family: Inter, '-apple-system', BlinkMacSystemFont,
+    'PingFang SC', 'Hiragino Sans GB', 'noto sans', 'Microsoft YaHei',
+    'Helvetica Neue', Helvetica, Arial, sans-serif;
   --#{$prefix}-font-weight-primary: 500;
 
   /* disabled */

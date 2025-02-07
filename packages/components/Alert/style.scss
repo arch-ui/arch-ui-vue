@@ -2,44 +2,6 @@
 
 $alert-prefix-cls: '#{$prefix}-alert';
 
-// alert 关闭动画
-.zoom-in-top-enter-from,
-.zoom-in-top-appear-from {
-  transform: scaleY(0.8) translateZ(0);
-  opacity: 0;
-}
-
-.zoom-in-top-enter-to,
-.zoom-in-top-appear-to {
-  transform: scaleY(1) translateZ(0);
-  opacity: 1;
-}
-
-.zoom-in-top-enter-active,
-.zoom-in-top-appear-active {
-  transform-origin: 0 0;
-  transition:
-    transform $transition-duration-3,
-    opacity $transition-duration-3;
-}
-
-.zoom-in-top-leave-from {
-  transform: scaleY(1) translateZ(0);
-  opacity: 1;
-}
-
-.zoom-in-top-leave-to {
-  transform: scaleY(0.8) translateZ(0);
-  opacity: 0;
-}
-
-.zoom-in-top-leave-active {
-  transform-origin: 0 0;
-  transition:
-    transform $transition-duration-3,
-    opacity $transition-duration-3;
-}
-
 // 初始化变量
 .#{$alert-prefix-cls} {
   --text-color: var(--#{$prefix}-text-color-regular);

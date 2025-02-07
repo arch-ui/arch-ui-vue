@@ -15,7 +15,9 @@ describe('Button.vue', () => {
       const wrapper = mount(Button, {
         props: { status: status as any },
       });
-      expect(wrapper.classes()).toContain(`${getPrefixCls(compName[0])}-status--${status}`);
+      expect(wrapper.classes()).toContain(
+        `${getPrefixCls(compName[0])}-status--${status}`
+      );
     });
   });
 
@@ -26,7 +28,9 @@ describe('Button.vue', () => {
       const wrapper = mount(Button, {
         props: { type: type as any },
       });
-      expect(wrapper.classes()).toContain(`${getPrefixCls(compName[0])}--${type}`);
+      expect(wrapper.classes()).toContain(
+        `${getPrefixCls(compName[0])}--${type}`
+      );
     });
   });
 
@@ -37,7 +41,9 @@ describe('Button.vue', () => {
       const wrapper = mount(Button, {
         props: { size: size as any },
       });
-      expect(wrapper.classes()).toContain(`${getPrefixCls(compName[0])}--${size}`);
+      expect(wrapper.classes()).toContain(
+        `${getPrefixCls(compName[0])}--${size}`
+      );
     });
   });
 
@@ -45,12 +51,15 @@ describe('Button.vue', () => {
   it.each([
     ['disabled', 'is-disabled'],
     ['loading', 'is-loading'],
-  ])('should has the correct class when prop %s is set to true', (prop, className) => {
-    const wrapper = mount(Button, {
-      props: { [prop]: true },
-    });
-    expect(wrapper.classes()).toContain(className);
-  });
+  ])(
+    'should has the correct class when prop %s is set to true',
+    (prop, className) => {
+      const wrapper = mount(Button, {
+        props: { [prop]: true },
+      });
+      expect(wrapper.classes()).toContain(className);
+    }
+  );
 
   it('should has the correct native type attribute when native-type prop is set', () => {
     const wrapper = mount(Button, {
@@ -70,7 +79,9 @@ describe('Button.vue', () => {
 
   // Props: Icon
   it('should renders the custom icon when icon prop is set', () => {
-    const wrapper = mount(() => <Button {...{ icon: 'search' }}>测试内容</Button>);
+    const wrapper = mount(() => (
+      <Button {...{ icon: 'search' }}>测试内容</Button>
+    ));
     expect(wrapper.find('i').exists()).toBe(true);
   });
 
@@ -119,7 +130,9 @@ describe('ButtonGroup.vue', () => {
       ));
 
       const buttonWrapper = wrapper.findComponent(Button);
-      expect(buttonWrapper.classes()).toContain(`${getPrefixCls(compName[0])}--${size}`);
+      expect(buttonWrapper.classes()).toContain(
+        `${getPrefixCls(compName[0])}--${size}`
+      );
     });
   });
 
@@ -134,7 +147,9 @@ describe('ButtonGroup.vue', () => {
       ));
 
       const buttonWrapper = wrapper.findComponent(Button);
-      expect(buttonWrapper.classes()).toContain(`${getPrefixCls(compName[0])}-status--${status}`);
+      expect(buttonWrapper.classes()).toContain(
+        `${getPrefixCls(compName[0])}-status--${status}`
+      );
     });
   });
 

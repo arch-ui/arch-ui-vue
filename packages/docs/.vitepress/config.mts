@@ -1,5 +1,8 @@
 import { defineConfig } from 'vitepress';
-import { containerPreview, componentPreview } from '@vitepress-demo-preview/plugin';
+import {
+  containerPreview,
+  componentPreview,
+} from '@vitepress-demo-preview/plugin';
 // import apiTable from "vitepress-api-table";
 
 // https://vitepress.dev/reference/site-config
@@ -30,7 +33,9 @@ export default defineConfig({
       },
     ],
 
-    socialLinks: [{ icon: 'github', link: 'https://github.com/EricWXY/toy-element' }],
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/EricWXY/toy-element' },
+    ],
   },
   markdown: {
     config: (md) => {

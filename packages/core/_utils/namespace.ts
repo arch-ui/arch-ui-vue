@@ -3,7 +3,10 @@ export function getPrefixCls(componentName: string, customPrefixCls?: string) {
   return componentName ? `${prefix}-${componentName}` : prefix;
 }
 
-export function getPrefixPascal(componentName: string, customPrefixCls?: string) {
+export function getPrefixPascal(
+  componentName: string,
+  customPrefixCls?: string
+) {
   return kebabToPascal(getPrefixCls(componentName, customPrefixCls));
 }
 

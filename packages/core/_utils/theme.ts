@@ -14,8 +14,17 @@ export function updateThemeToken(token: ThemeTokenType) {
     return;
   }
   // 修改 css 变量
-  document.documentElement.style.setProperty('--primary-color', token.primary ?? '');
-  document.documentElement.style.setProperty('--success-color', token.success ?? '');
-  document.documentElement.style.setProperty('--warning-color', token.warning ?? '');
+  document.documentElement.style.setProperty(
+    '--primary-color',
+    token.primary ?? ''
+  );
+  document.documentElement.style.setProperty(
+    '--success-color',
+    token.success ?? ''
+  );
+  document.documentElement.style.setProperty(
+    '--warning-color',
+    token.warning ?? ''
+  );
   document.documentElement.style.setProperty('--info-color', token.info ?? '');
 }

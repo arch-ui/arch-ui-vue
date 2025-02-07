@@ -1,5 +1,10 @@
 <script setup lang="ts">
-import type { ButtonProps, ButtonEmits, ButtonInstance, ButtonSlots } from './type';
+import type {
+  ButtonProps,
+  ButtonEmits,
+  ButtonInstance,
+  ButtonSlots,
+} from './type';
 import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui-vue/_utils';
 import AIcon from '../Icon/Icon.vue';
 import { computed, inject, ref } from 'vue';
@@ -28,7 +33,9 @@ const size = computed(() => ctx?.size ?? props?.size ?? '');
 const status = computed(() => ctx?.status ?? props?.status ?? '');
 const disabled = computed(() => ctx?.disabled || props?.disabled || false);
 const _ref = ref<HTMLButtonElement | void>();
-const iconStyle = computed(() => ({ marginRight: slots.default ? '6px' : '0px' }));
+const iconStyle = computed(() => ({
+  marginRight: slots.default ? '6px' : '0px',
+}));
 
 const handleBtnClick = (e: MouseEvent) => emit('click', e);
 
@@ -59,7 +66,13 @@ defineExpose<ButtonInstance>({
   >
     <template v-if="loading">
       <slot name="loading">
-        <a-icon class="loading-icon" :icon="loadingIcon ?? 'spinner'" size="1x" :style="iconStyle" spin />
+        <a-icon
+          class="loading-icon"
+          :icon="loadingIcon ?? 'spinner'"
+          size="1x"
+          :style="iconStyle"
+          spin
+        />
       </slot>
     </template>
     <template v-else-if="icon">

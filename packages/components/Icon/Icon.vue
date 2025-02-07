@@ -19,7 +19,11 @@ const customStyle = computed(() => ({
 </script>
 
 <template>
-  <i :class="[`${compPrefix}`, type && `${compPrefix}-${type}`]" :style="customStyle" v-bind="$attrs">
+  <i
+    :class="[`${compPrefix}`, type && `${compPrefix}-${type}`]"
+    :style="customStyle"
+    v-bind="$attrs"
+  >
     <font-awesome-icon v-bind="filterProps" />
   </i>
 </template>

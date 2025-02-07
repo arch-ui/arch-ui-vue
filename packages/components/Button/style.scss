@@ -12,7 +12,8 @@ $icon-prefix-cls: '#{$prefix}-icon';
   --bg-color: var(--#{$prefix}-fill-color);
   --text-color: var(--#{$prefix}-text-color-primary);
   // border
-  --border: var(--#{$prefix}-border-width) var(--#{$prefix}-border-style) var(--#{$prefix}-border-color);
+  --border: var(--#{$prefix}-border-width) var(--#{$prefix}-border-style)
+    var(--#{$prefix}-border-color);
   --border-radius: var(--#{$prefix}-border-radius-small);
   // disabled
   --disabled-text-color: var(--#{$prefix}-disabled-text-color);
@@ -96,7 +97,8 @@ $icon-prefix-cls: '#{$prefix}-icon';
   &--outline {
     border: var(--border);
     border-color: var(--border-color);
-    --border: var(--#{$prefix}-border-width) var(--#{$prefix}-border-style) var(--#{$prefix}-border-color);
+    --border: var(--#{$prefix}-border-width) var(--#{$prefix}-border-style)
+      var(--#{$prefix}-border-color);
     --border-color: var(--#{$prefix}-color-primary);
     --bg-color: var(--#{$prefix}-fill-color-blank);
     --text-color: var(--#{$prefix}-color-primary);
@@ -163,7 +165,9 @@ $icon-prefix-cls: '#{$prefix}-icon';
     &--outline.#{$btn-prefix-cls}-status--#{$val} {
       border: var(--border);
       border-color: var(--border-color);
-      --border: var(--#{$prefix}-border-width) var(--#{$prefix}-border-style) var(--#{$prefix}-border-color);
+      --border: var(--#{$prefix}-border-width)
+        var(--#{$prefix}-border-style)
+        var(--#{$prefix}-border-color);
       --border-color: var(--#{$prefix}-color-#{$val});
       --bg-color: var(--#{$prefix}-fill-color-blank);
       --text-color: var(--#{$prefix}-color-#{$val});

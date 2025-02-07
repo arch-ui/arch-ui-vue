@@ -99,7 +99,10 @@ function createComponentFiles(component: string) {
 function createStorybookFile(component: string) {
   const projectPath = getProjectPath();
   const playgroundPath = path.join(projectPath, 'packages/playground');
-  const storybookFile = path.join(playgroundPath, `./src/stories/${component}.stories.ts`);
+  const storybookFile = path.join(
+    playgroundPath,
+    `./src/stories/${component}.stories.ts`
+  );
 
   if (fs.existsSync(storybookFile)) {
     spinner.fail('组件storybook已存在\n');
@@ -113,7 +116,10 @@ function createStorybookFile(component: string) {
 function addToIndex(component: string) {
   const projectPath = getProjectPath();
   const indexPath = path.join(projectPath, 'packages/components/index.ts');
-  const coreComponentPath = path.join(projectPath, 'packages/core/components.ts');
+  const coreComponentPath = path.join(
+    projectPath,
+    'packages/core/components.ts'
+  );
 
   // packages/components/index.ts
   let indexContent = fs.readFileSync(indexPath, 'utf8');
@@ -132,9 +138,15 @@ function addToIndex(component: string) {
 
   if (exportMatch && pluginMatch) {
     // 在现有import语句中添加新项
-    componentContent = componentContent.replace(exportRegex, `{ ${exportMatch[1].trim()}, ${newExport.trim()} }`);
+    componentContent = componentContent.replace(
+      exportRegex,
+      `{ ${exportMatch[1].trim()}, ${newExport.trim()} }`
+    );
     // 在现有export 语句中添加新项
-    componentContent = componentContent.replace(pluginRegex, `[${pluginMatch[1].trim()}, ${newExport.trim()}]`);
+    componentContent = componentContent.replace(
+      pluginRegex,
+      `[${pluginMatch[1].trim()}, ${newExport.trim()}]`
+    );
   } else {
     spinner.fail('在入口文件导出组件失败\n');
     process.exit(1);

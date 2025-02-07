@@ -12,7 +12,13 @@ import {
 type Story = StoryObj<typeof AIcon>;
 
 // 添加 FontAwesome 图标到库中
-library.add(faCoffee, faCircleInfo, faCircleCheck, faCircleExclamation, faCircleXmark);
+library.add(
+  faCoffee,
+  faCircleInfo,
+  faCircleCheck,
+  faCircleExclamation,
+  faCircleXmark
+);
 
 const meta: Meta<typeof AIcon> = {
   title: 'Components/Icon',
@@ -21,7 +27,13 @@ const meta: Meta<typeof AIcon> = {
   argTypes: {
     icon: {
       control: { type: 'select' },
-      options: ['coffee', 'circle-info', 'circle-check', 'circle-exclamation', 'circle-xmark'],
+      options: [
+        'coffee',
+        'circle-info',
+        'circle-check',
+        'circle-exclamation',
+        'circle-xmark',
+      ],
       description: '图标名称',
     },
     color: {

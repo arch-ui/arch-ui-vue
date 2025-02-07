@@ -1,0 +1,73 @@
+@use './variables.scss' as *;
+
+// // used by alert 折叠关闭
+.zoom-in-top-enter-from,
+.zoom-in-top-appear-from {
+  transform: scaleY(0.8) translateZ(0);
+  opacity: 0;
+}
+
+.zoom-in-top-enter-to,
+.zoom-in-top-appear-to {
+  transform: scaleY(1) translateZ(0);
+  opacity: 1;
+}
+
+.zoom-in-top-enter-active,
+.zoom-in-top-appear-active {
+  transform-origin: 0 0;
+  transition:
+    transform $transition-duration-3,
+    opacity $transition-duration-3;
+}
+
+.zoom-in-top-leave-from {
+  transform: scaleY(1) translateZ(0);
+  opacity: 1;
+}
+
+.zoom-in-top-leave-to {
+  transform: scaleY(0.8) translateZ(0);
+  opacity: 0;
+}
+
+.zoom-in-top-leave-active {
+  transform-origin: 0 0;
+  transition:
+    transform $transition-duration-3,
+    opacity $transition-duration-3;
+}
+
+// used by tooltip。缩放出现，渐隐退出
+.zoom-in-fade-out-enter-from,
+.zoom-in-fade-out-appear-from {
+  transform: scale(0.5, 0.5);
+  opacity: 0;
+}
+
+.zoom-in-fade-out-enter-to,
+.zoom-in-fade-out-appear-to {
+  transform: scale(1, 1);
+  opacity: 1;
+}
+
+.zoom-in-fade-out-enter-active,
+.zoom-in-fade-out-appear-active {
+  transition: opacity $transition-duration-3 transform $transition-duration-3;
+}
+
+.zoom-in-fade-out-leave-from {
+  transform: scale(1, 1);
+  opacity: 1;
+}
+
+.zoom-in-fade-out-leave-to {
+  transform: scale(0.5, 0.5);
+  opacity: 0;
+}
+
+.zoom-in-fade-out-leave-active {
+  transition:
+    opacity $transition-duration-3,
+    transform $transition-duration-3;
+}

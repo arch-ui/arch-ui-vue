@@ -28,8 +28,6 @@
   "include": [
     "env.d.ts",
     "packages/core/index.ts",
-    "packages/hooks/**/*.ts",
-    "packages/utils/**/*.ts",
     "packages/components/**/*.ts",
     "packages/components/**/*.vue"
   ],
