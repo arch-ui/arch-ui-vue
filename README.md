@@ -10,10 +10,11 @@
 
 ## TODO
 
-1. 使用kebab-case命名组件
-2. 实现popper组件
-3. 实现虚拟滚动 table 组件
-4. 其他一些亮点组件（待收集）
+- [ ] 使用kebab-case命名组件
+- [ ] 实现popper组件库
+- [ ] 实现虚拟滚动 table 组件
+- [ ] 其他一些亮点组件（待收集）
+- [ ] 打包优化，打包体积分析、产物优化
 
 ## 亮点
 
@@ -32,6 +33,9 @@
       - docs 文档 (vitepress)
       - playground (storybook)
   - 工程化配置
+    - 打包优化
+      - 配置组件分包、CSS拆分，利用vite插件机制，在编译chunk时，导入css样式
+      - 使用外置依赖，将vue、fortawesome等一些字体作为外置依赖，不进行打包，优化包体积
     - 工具
       - 代码检查和格式化
         - ESLint
