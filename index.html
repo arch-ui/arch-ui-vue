@@ -3,6 +3,14 @@
 <h2 id="">预览</h2>
 <p>文档：<a href="https://arch-desgin.github.io/arch-ui-vue/docs/">https://arch-desgin.github.io/arch-ui-vue/docs/</a></p>
 <p>演练场：<a href="https://arch-desgin.github.io/arch-ui-vue/playground">https://arch-desgin.github.io/arch-ui-vue/playground</a></p>
+<h2 id="todo">TODO</h2>
+<ul>
+<li>[x] 使用kebab-case命名组件</li>
+<li>[ ] 实现popper组件库</li>
+<li>[ ] 实现虚拟滚动 table 组件</li>
+<li>[ ] 其他一些亮点组件（待收集）</li>
+<li>[ ] 打包优化，打包体积分析、产物优化</li>
+</ul>
 <h2 id="-1">亮点</h2>
 <p>这里简单记一下，包括针对这些亮点可能的提问：</p>
 <ul>
@@ -17,8 +25,16 @@
 <li>core 核心包(一些工具和方法也在这)</li>
 <li>lint 代码检查(ESLint、Prettier配置)</li>
 <li>docs 文档 (vitepress)</li>
-<li>playground (storybook)</li></ul></li>
+<li>playground (storybook)</li>
+<li>组件、文件命名规范</li>
+<li>使用 kebab-case https://www.ruanyifeng.com/blog/2017/02/filename-should-be-lowercase.html<ol>
+<li>避免多种格式混用导致视觉不一致，保持代码库的一致性，便于查找</li>
+<li>git默认配置的忽略大小写，导致文件修改大小写时无法被识别</li>
+<li>Linux 系统是大小写敏感的，而 Windows 系统和 Mac 系统正好相反，大小写不敏感，如果两个文件名只有大小写不同，其他都相同，跨平台就会出问题</li></ol></li></ul></li>
 <li>工程化配置<ul>
+<li>打包优化</li>
+<li>配置组件分包、CSS拆分，利用vite插件机制，在编译chunk时，让组件导入css样式</li>
+<li>使用外置依赖，将vue、fortawesome等一些字体作为外置依赖，不进行打包，优化包体积</li>
 <li>工具</li>
 <li>代码检查和格式化<ul>
 <li>ESLint</li>
@@ -34,7 +50,9 @@
 <li>husky</li>
 <li>通过git hooks实现在git操作前执行一些脚本，比如commit-msg、pre-commit等</li>
 <li>执行npm prepare(npm script生命周期)时修改.git下的config，添加hooksPath=.husky，来指定Git操作前执行的动作</li>
-<li>诸如commit-msg、pre-commit这些文件本质是shell脚本，因此需要注意它们的执行权限</li></ul></li>
+<li>诸如commit-msg、pre-commit这些文件本质是shell脚本，因此需要注意它们的执行权限</li>
+<li>czg</li>
+<li>使用czg快捷生成约定式commit msg</li></ul></li>
 <li>npm script 运用<ul>
 <li>使用 tsx xxx 运行 ts 脚本</li>
 <li>使用 useDevBuild.ts 切换 package.json 配置</li>
