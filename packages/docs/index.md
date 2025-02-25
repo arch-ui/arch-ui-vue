@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: 'Arch-ui'
+  name: 'Arch-Design-Vue'
   text: '类 Arco Design UI 库'
   tagline: '使用Vue3 Setup + TS + Sass技术栈构建'
   actions:
