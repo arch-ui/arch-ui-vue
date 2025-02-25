@@ -1,0 +1,76 @@
+@use '@arch-design/arch-ui-vue/_style/index.scss' as *;
+
+$collapse-prefix-cls: '#{$prefix}-collapse';
+
+.#{$collapse-prefix-cls} {
+  --border-radius: var(--#{$prefix}-border-radius-base);
+  --border-color: var(--#{$prefix}-border-color-light);
+  --header-bg-color: var(--#{$prefix}-fill-color-blank);
+  --header-text-color: var(--#{$prefix}-text-color-primary);
+  --header-font-size: 13px;
+  --content-bg-color: var(--#{$prefix}-fill-color-dark);
+  --content-font-size: 13px;
+  --content-text-color: var(--#{$prefix}-text-color-primary);
+  --disabled-text-color: var(--#{$prefix}-disabled-text-color);
+  --disabled-border-color: var(--#{$prefix}-border-color-lighter);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.#{$collapse-prefix-cls}-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 15px;
+  background-color: var(--header-bg-color);
+  color: var(--header-text-color);
+  cursor: pointer;
+  font-size: var(--header-font-size);
+  font-weight: 500;
+  transition: border-bottom-color var(--#{$prefix}-transition-duration);
+  outline: none;
+
+  &.is-disabled {
+    color: var(--disabled-text-color);
+    cursor: not-allowed;
+    background-image: none;
+  }
+
+  &.is-active {
+    border-bottom-color: transparent;
+
+    .header-angle {
+      transform: rotate(90deg);
+    }
+  }
+
+  .#{$collapse-prefix-cls}-item__title {
+    font-size: 14px;
+    margin-left: 10px;
+  }
+
+  .header-angle {
+    transition: transform $transition-duration-3;
+  }
+}
+
+.#{$collapse-prefix-cls}-item + .#{$collapse-prefix-cls}-item {
+  border-top: 1px solid var(--border-color);
+}
+
+.#{$collapse-prefix-cls}-item__content {
+  will-change: height;
+  background-color: var(--content-bg-color);
+  overflow: hidden;
+  box-sizing: border-box;
+  font-size: var(--content-font-size);
+  color: var(--content-text-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 7px 7px 7px 27px;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: height $transition-duration-2 ease-in-out;
+}

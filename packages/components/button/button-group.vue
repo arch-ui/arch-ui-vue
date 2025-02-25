@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ButtonGroupProps } from './type.d';
+import type { ButtonGroupProps } from './type';
 import { provide, reactive, toRef } from 'vue';
 import { BUTTON_GROUP_CTX_KEY } from './constants';
 import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui-vue/_utils';

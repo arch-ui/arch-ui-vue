@@ -1,8 +1,9 @@
 import { pascalToKebab } from '../_utils';
 
 export function getIndexContent(comp: string) {
+  const kabebComp = pascalToKebab(comp);
   return `import { withInstall } from '@arch-design/arch-ui-vue/_utils';
-import _${comp} from './${comp}.vue';
+import _${comp} from './${kabebComp}.vue';
 
 export const A${comp} = withInstall(_${comp});
 
@@ -40,7 +41,9 @@ defineOptions({
 }
 
 export function getTestComponent(comp: string) {
-  return ``;
+  return `import { test } from "vitest";
+
+test.skip("should skip this test", () => {});`;
 }
 
 export function getTypeContent(comp: string) {

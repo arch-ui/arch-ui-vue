@@ -71,6 +71,9 @@ importers:
       cssnano:
         specifier: ^7.0.1
         version: 7.0.6(postcss@8.4.47)
+      eslint:
+        specifier: 7.17.0
+        version: 7.17.0
       husky:
         specifier: ^7.0.2
         version: 7.0.4
@@ -5864,6 +5867,7 @@ packages:
       {
         integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==,
       }
+    deprecated: This package is deprecated. Use the optional chaining (?.) operator instead.
 
   lodash.isequal@4.5.0:
     resolution:
@@ -9009,6 +9013,12 @@ packages:
         integrity: sha512-lfgdSLQKrUmADiSV6PbBvYgQ33KF3Ztv6gP85MfGaGaSGMTXORVaHT1EHfsqCgzRNBstPKYDmvAV9Do5CmJ07A==,
       }
 
+  vue-component-type-helpers@2.2.4:
+    resolution:
+      {
+        integrity: sha512-F66p0XLbAu92BRz6kakHyAcaUSF7HWpWX/THCqL0TxySSj7z/nok5UUMohfNkkCm1pZtawsdzoJ4p1cjNqCx0Q==,
+      }
+
   vue-demi@0.14.10:
     resolution:
       {
@@ -10577,7 +10587,7 @@ snapshots:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.5.12(typescript@5.6.3)
-      vue-component-type-helpers: 2.1.10
+      vue-component-type-helpers: 2.2.4
 
   '@testing-library/dom@10.4.0':
     dependencies:
@@ -14947,6 +14957,8 @@ snapshots:
       typescript: 5.6.3
 
   vue-component-type-helpers@2.1.10: {}
+
+  vue-component-type-helpers@2.2.4: {}
 
   vue-demi@0.14.10(vue@3.5.12(typescript@5.6.3)):
     dependencies:

@@ -12,6 +12,7 @@ import {
   getTypeContent,
   getStorybookContent,
 } from './components.template';
+import { kebabToPascal } from '../_utils';
 
 const spinner = ora(`新建组件中`).start();
 
@@ -69,6 +70,7 @@ function getComponentName(): string {
 
 // 在packages/components下创建组件目录
 function createComponentFiles(component: string) {
+  const pascalComp = kebabToPascal(component);
   const projectPath = getProjectPath();
   const compsPath = path.join(projectPath, 'packages/components');
 
@@ -81,22 +83,23 @@ function createComponentFiles(component: string) {
   fs.mkdirSync(componentFolder);
 
   const indexPath = path.join(componentFolder, 'index.ts');
-  fs.writeFileSync(indexPath, getIndexContent(component));
+  fs.writeFileSync(indexPath, getIndexContent(pascalComp));
 
   const vuePath = path.join(componentFolder, `${component}.vue`);
-  fs.writeFileSync(vuePath, getComponentContent(component));
+  fs.writeFileSync(vuePath, getComponentContent(pascalComp));
 
   const stylePath = path.join(componentFolder, 'style.scss');
-  fs.writeFileSync(stylePath, getStyleContent(component));
+  fs.writeFileSync(stylePath, getStyleContent(pascalComp));
 
   const typePath = path.join(componentFolder, 'type.d.ts');
-  fs.writeFileSync(typePath, getTypeContent(component));
+  fs.writeFileSync(typePath, getTypeContent(pascalComp));
 
   const testPath = path.join(componentFolder, `${component}.test.tsx`);
-  fs.writeFileSync(testPath, getTestComponent(component));
+  fs.writeFileSync(testPath, getTestComponent(pascalComp));
 }
 
 function createStorybookFile(component: string) {
+  const pascalComp = kebabToPascal(component);
   const projectPath = getProjectPath();
   const playgroundPath = path.join(projectPath, 'packages/playground');
   const storybookFile = path.join(
@@ -109,11 +112,12 @@ function createStorybookFile(component: string) {
     process.exit(1);
   }
 
-  fs.writeFileSync(storybookFile, getStorybookContent(component));
+  fs.writeFileSync(storybookFile, getStorybookContent(pascalComp));
 }
 
 // 添加组件到导出入口
 function addToIndex(component: string) {
+  const pascalComp = kebabToPascal(component);
   const projectPath = getProjectPath();
   const indexPath = path.join(projectPath, 'packages/components/index.ts');
   const coreComponentPath = path.join(
@@ -129,7 +133,7 @@ function addToIndex(component: string) {
   const newImport = `export * from './${component}';\n`;
   indexContent = newImport + indexContent;
 
-  const newExport = `A${component}`;
+  const newExport = `A${pascalComp}`;
   // 正则表达式匹配export语句，但不包括花括号内的内容
   const exportRegex = /\{([^}]+)\}/;
   const pluginRegex = /\[([^\]]+)\]/;

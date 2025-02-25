@@ -1,0 +1,113 @@
+@use '@arch-design/arch-ui-vue/_style/index.scss' as *;
+
+$alert-prefix-cls: '#{$prefix}-alert';
+
+// 初始化变量
+.#{$alert-prefix-cls} {
+  --text-color: var(--#{$prefix}-text-color-regular);
+}
+
+.#{$alert-prefix-cls} {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  padding: 8px 16px;
+  border-radius: var(--#{$prefix}-border-radius-base);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: var(--#{$prefix}-font-size-base);
+  line-height: 1.5;
+
+  // 类型样式
+  &-info {
+    --bg-color: var(--#{$prefix}-color-primary-light-9);
+    --icon-color: var(--#{$prefix}-color-primary);
+  }
+
+  &-success {
+    --bg-color: var(--#{$prefix}-color-success-light-9);
+    --icon-color: var(--#{$prefix}-color-success);
+  }
+
+  &-warning {
+    --bg-color: var(--#{$prefix}-color-warning-light-9);
+    --icon-color: var(--#{$prefix}-color-warning);
+  }
+
+  &-error {
+    --bg-color: var(--#{$prefix}-color-danger-light-9);
+    --icon-color: var(--#{$prefix}-color-danger);
+  }
+
+  &-icon {
+    margin-right: 8px;
+    font-size: 14px;
+    line-height: 2;
+    color: var(--icon-color);
+  }
+
+  &-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &-title {
+    margin-bottom: 4px;
+    font-size: var(--#{$prefix}-font-size-medium);
+    font-weight: var(--#{$prefix}-font-weight-primary);
+    color: var(--text-color);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &-content {
+    color: var(--text-color);
+    word-break: break-word;
+  }
+
+  &-action {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 8px;
+  }
+
+  &-close-btn {
+    float: right;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    top: 12px;
+    right: 16px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    padding: 0;
+    color: var(--text-color);
+    font-size: var(--#{$prefix}-font-size-base);
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    transition: backdrop-filter 0.3s ease;
+
+    &:hover {
+      backdrop-filter: saturate(500%) brightness(0.95);
+    }
+  }
+
+  &-center {
+    justify-content: center;
+    text-align: center;
+  }
+
+  &-banner {
+    border-radius: 0;
+    border: none;
+  }
+
+  &-action {
+    margin-left: 8px;
+  }
+}

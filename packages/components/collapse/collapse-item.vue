@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import type { CollapseItemProps } from './type.d';
+import type { CollapseItemProps } from './type';
 import { computed, inject, getCurrentInstance } from 'vue';
 import { COLLAPSE_CTX_KEY } from './constants';
 import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui-vue/_utils';
-import AIcon from '../Icon/Icon.vue';
-import transitionEvents from './transitionEvents';
+import AIcon from '../icon/icon.vue';
+import transitionEvents from './transition-events';
 
 const compName = 'collapse-item';
 const compPrefix = getPrefixCls(compName);

@@ -1,0 +1,295 @@
+@use '@arch-design/arch-ui-vue/_style/index.scss' as *;
+
+$btn-prefix-cls: '#{$prefix}-button';
+$icon-prefix-cls: '#{$prefix}-icon';
+
+// 初始变量
+.#{$btn-prefix-cls} {
+  // font
+  --font-size: var(--#{$prefix}-font-size-base);
+  --font-weight: var(--#{$prefix}-font-weight-primary);
+  // color
+  --bg-color: var(--#{$prefix}-fill-color);
+  --text-color: var(--#{$prefix}-text-color-primary);
+  // border
+  --border: var(--#{$prefix}-border-width) var(--#{$prefix}-border-style)
+    var(--#{$prefix}-border-color);
+  --border-radius: var(--#{$prefix}-border-radius-small);
+  // disabled
+  --disabled-text-color: var(--#{$prefix}-disabled-text-color);
+  --disabled-bg-color: var(--#{$prefix}-fill-color-light);
+  // --disabled-border-color: var(--#{$prefix}-border-color-light);
+  // hover
+  --hover-text-color: var(--#{$prefix}-color-white);
+  --hover-bg-color: var(--#{$prefix}-color-primary-light-3);
+  // --hover-border-color: var(--#{$prefix}-color-primary-light-7);
+  // active
+  --active-text-color: var(--hover-text-color);
+  // --active-border-color: var(--#{$prefix}-color-primary);
+  --active-bg-color: var(--#{$prefix}-color-primary-dark-2);
+}
+
+.#{$btn-prefix-cls} {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  height: 32px;
+  padding: 8px 15px;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  appearance: none;
+  box-sizing: border-box;
+  transition: #{$transition-duration-1};
+  font-weight: var(--font-weight);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  border: var(--border);
+  border-color: var(--border-color);
+  font-size: var(--font-size);
+  border-radius: var(--border-radius);
+
+  & + & {
+    margin-left: 12px;
+  }
+
+  &:hover {
+    color: var(--hover-text-color);
+    border-color: var(--hover-border-color);
+    background-color: var(--hover-bg-color);
+  }
+
+  &:active {
+    color: var(--active-text-color);
+    border-color: var(--active-border-color);
+    background-color: var(--active-bg-color);
+  }
+
+  /** 默认色 */
+  // secondary 默认按钮样式
+  & {
+    --border: none;
+    --bg-color: var(--#{$prefix}-color-primary-light-8);
+    --text-color: var(--#{$prefix}-color-primary);
+    --hover-bg-color: var(--#{$prefix}-color-primary-light-7);
+    --hover-text-color: var(--text-color);
+    --active-text-color: var(--text-color);
+    --active-bg-color: var(--#{$prefix}-color-primary-light-5);
+    --disabled-text-color: var(--#{$prefix}-color-primary-light-5);
+    --disabled-bg-color: var(--#{$prefix}-color-primary-light-9);
+  }
+
+  // primary
+  &--primary {
+    --border: none;
+    --bg-color: var(--#{$prefix}-color-primary);
+    --text-color: var(--#{$prefix}-color-white);
+    --hover-text-color: var(--#{$prefix}-color-white);
+    --hover-bg-color: var(--#{$prefix}-color-primary-light-3);
+    --active-bg-color: var(--#{$prefix}-color-primary-dark-2);
+    --disabled-text-color: var(--#{$prefix}-color-white);
+    --disabled-bg-color: var(--#{$prefix}-color-primary-light-5);
+  }
+
+  // outline
+  &--outline {
+    border: var(--border);
+    border-color: var(--border-color);
+    --border: var(--#{$prefix}-border-width) var(--#{$prefix}-border-style)
+      var(--#{$prefix}-border-color);
+    --border-color: var(--#{$prefix}-color-primary);
+    --bg-color: var(--#{$prefix}-fill-color-blank);
+    --text-color: var(--#{$prefix}-color-primary);
+    --hover-text-color: var(--#{$prefix}-color-primary-light-3);
+    --hover-border-color: var(--#{$prefix}-color-primary-light-3);
+    --hover-bg-color: var(--bg-color);
+    --active-text-color: var(--#{$prefix}-color-primary-dark-2);
+    --active-border-color: var(--#{$prefix}-color-primary-light-2);
+    --active-bg-color: var(--bg-color);
+    --disabled-text-color: var(--#{$prefix}-color-primary-light-5);
+    --disabled-border-color: var(--#{$prefix}-color-primary-light-5);
+    --disabled-bg-color: var(--bg-color);
+  }
+
+  // text
+  &--text {
+    --bg-color: var(--#{$prefix}-fill-color-blank);
+    --text-color: var(--#{$prefix}-color-primary);
+    --hover-bg-color: var(--#{$prefix}-fill-color-dark);
+    --hover-text-color: var(--text-color);
+    --active-text-color: var(--text-color);
+    --active-bg-color: var(--#{$prefix}-fill-color-darker);
+    --disabled-text-color: var(--#{$prefix}-color-primary-light-5);
+    --disabled-bg-color: var(--bg-color);
+  }
+
+  // 状态色
+  @each $val in success, warning, info, danger {
+    // TODO 这里及其坑 为了满足 同时应用status 和 type 的样式 使用了.a.b这种交集选择器
+    // 关系选择器：
+    // 1. .a .b 后代选择器
+    // 2. .a.b 交集选择器 同时包含 .a .b 的元素
+    // 3. .a>.b 子代选择器
+    // 4. .a+.b 相邻兄弟选择器
+    // 5. .a~.b 通用兄弟选择器 选择.a元素之后的所有.b元素
+    // 6. .a,.b 并集选择器 包含 .a .b 其中一个的元素
+
+    // secondary 默认按钮样式
+    &.#{$btn-prefix-cls}-status--#{$val} {
+      --border: none;
+      --bg-color: var(--#{$prefix}-color-#{$val}-light-8);
+      --text-color: var(--#{$prefix}-color-#{$val});
+      --hover-bg-color: var(--#{$prefix}-color-#{$val}-light-7);
+      --hover-text-color: var(--text-color);
+      --active-text-color: var(--text-color);
+      --active-bg-color: var(--#{$prefix}-color-#{$val}-light-5);
+      --disabled-text-color: var(--#{$prefix}-color-#{$val}-light-5);
+      --disabled-bg-color: var(--#{$prefix}-color-#{$val}-light-9);
+    }
+
+    // primary
+    &--primary.#{$btn-prefix-cls}-status--#{$val} {
+      --border: none;
+      --bg-color: var(--#{$prefix}-color-#{$val});
+      --text-color: var(--#{$prefix}-color-white);
+      --hover-text-color: var(--#{$prefix}-color-white);
+      --hover-bg-color: var(--#{$prefix}-color-#{$val}-light-3);
+      --active-bg-color: var(--#{$prefix}-color-#{$val}-dark-2);
+      --disabled-text-color: var(--#{$prefix}-color-white);
+      --disabled-bg-color: var(--#{$prefix}-color-#{$val}-light-5);
+    }
+
+    // outline
+    &--outline.#{$btn-prefix-cls}-status--#{$val} {
+      border: var(--border);
+      border-color: var(--border-color);
+      --border: var(--#{$prefix}-border-width)
+        var(--#{$prefix}-border-style)
+        var(--#{$prefix}-border-color);
+      --border-color: var(--#{$prefix}-color-#{$val});
+      --bg-color: var(--#{$prefix}-fill-color-blank);
+      --text-color: var(--#{$prefix}-color-#{$val});
+      --hover-text-color: var(--#{$prefix}-color-#{$val}-light-3);
+      --hover-border-color: var(--#{$prefix}-color-#{$val}-light-3);
+      --hover-bg-color: var(--bg-color);
+      --active-text-color: var(--#{$prefix}-color-#{$val}-dark-2);
+      --active-border-color: var(--#{$prefix}-color-#{$val}-light-2);
+      --active-bg-color: var(--bg-color);
+      --disabled-text-color: var(--#{$prefix}-color-#{$val}-light-5);
+      --disabled-border-color: var(--#{$prefix}-color-#{$val}-light-5);
+      --disabled-bg-color: var(--bg-color);
+    }
+
+    // text
+    &--text.#{$btn-prefix-cls}-status--#{$val} {
+      --bg-color: var(--#{$prefix}-fill-color-blank);
+      --text-color: var(--#{$prefix}-color-#{$val});
+      --hover-bg-color: var(--#{$prefix}-fill-color-dark);
+      --hover-text-color: var(--text-color);
+      --active-text-color: var(--text-color);
+      --active-bg-color: var(--#{$prefix}-fill-color-darker);
+      --disabled-text-color: var(--#{$prefix}-color-#{$val}-light-5);
+      --disabled-bg-color: var(--bg-color);
+    }
+  }
+
+  // 按钮大小
+  &--large {
+    height: 40px;
+    padding: 12px 19px;
+    font-size: var(--#{$prefix}-font-size-base);
+    border-radius: var(--border-radius);
+  }
+
+  &--small {
+    height: 24px;
+    padding: 5px 11px;
+    font-size: 12px;
+    border-radius: calc(var(--border-radius) - 1px);
+
+    [class*='#{$icon-prefix-cls}'] {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  &--mini {
+    height: 20px;
+    padding: 0 8px;
+    font-size: 12px;
+    border-radius: calc(var(--border-radius) - 1px);
+  }
+
+  /*disabled*/
+  &.is-loading,
+  &.is-disabled,
+  &.is-disabled:hover,
+  &.is-disabled:focus,
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus {
+    color: var(--disabled-text-color);
+    cursor: not-allowed;
+    background-image: none;
+    background-color: var(--disabled-bg-color);
+    border-color: var(--disabled-border-color);
+  }
+
+  [class*='#{$icon-prefix-cls}'] {
+    width: 1em;
+    height: 1em;
+  }
+}
+
+// 按钮组
+.#{$btn-prefix-cls}-group {
+  --group-border-color: var(--#{$prefix}-border-color-lighter);
+}
+
+// 按钮组
+.#{$btn-prefix-cls}-group {
+  display: inline-block;
+  vertical-align: middle;
+
+  &::after {
+    clear: both;
+  }
+
+  & > .#{$btn-prefix-cls} {
+    float: left;
+    position: relative;
+    margin-left: 0;
+
+    &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right: 1px solid var(--group-border-color);
+    }
+
+    &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-left: 1px solid var(--group-border-color);
+    }
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+
+      border-left: 1px solid var(--group-border-color);
+      border-right: 1px solid var(--group-border-color);
+    }
+
+    &:not(:last-child) {
+      margin-right: -1px;
+    }
+
+    &:first-child:last-child {
+      border-top-right-radius: var(--#{$prefix}-border-radius-base);
+      border-bottom-right-radius: var(--#{$prefix}-border-radius-base);
+      border-top-left-radius: var(--#{$prefix}-border-radius-base);
+      border-bottom-left-radius: var(--#{$prefix}-border-radius-base);
+    }
+  }
+}

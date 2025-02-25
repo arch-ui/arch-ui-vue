@@ -1,6 +1,6 @@
 import { withInstall } from '@arch-design/arch-ui-vue/_utils';
-import _Alert from './Alert.vue';
+import _Tooltip from './tooltip.vue';
 
-export const AAlert = withInstall(_Alert);
+export const ATooltip = withInstall(_Tooltip);
 
 export * from './type.d';
