@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui-vue/_utils';
+import { getPrefixCls, getPrefixPascal } from '@arch-ui/arch-ui-vue/_utils';
 import type { CollapseEmits, CollapseProps, CollapseItemKey } from './type';
 import { ref, provide, watch, watchEffect } from 'vue';
 import { COLLAPSE_CTX_KEY } from './constants';

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { AIcon } from '@arch-design/arch-ui-vue';
+import { AIcon } from '@arch-ui/arch-ui-vue';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faCoffee,

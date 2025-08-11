@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { ACollapse, ACollapseItem } from '@arch-design/arch-ui-vue';
+import { ACollapse, ACollapseItem } from '@arch-ui/arch-ui-vue';
 
 type Story = StoryObj<typeof ACollapse>;
 

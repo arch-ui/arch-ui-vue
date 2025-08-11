@@ -10,7 +10,7 @@ next:
 ## 安装
 
 ```bash
-npm i @arch-design/arch-ui-vue --save
+npm i @arch-ui/arch-ui-vue --save
 ```
 
 ## 开始使用
@@ -19,7 +19,7 @@ npm i @arch-design/arch-ui-vue --save
 
 ```js
 // 引入所有组件
-import ArchUI from '@arch-design/arch-ui-vue';
+import ArchUI from '@arch-ui/arch-ui-vue';
 
 import App from './App.vue';
 // 全局使用
@@ -41,7 +41,7 @@ Arch-UI 提供了基于 ES Module 的开箱即用的 Tree Shaking 功能。
   <a-button>我是 Button</a-button>
 </template>
 <script>
-import { AButton } from '@arch-design/arch-ui-vue';
+import { AButton } from '@arch-ui/arch-ui-vue';
 export default {
   components: { AButton },
 };

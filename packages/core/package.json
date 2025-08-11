@@ -1,5 +1,5 @@
 {
-  "name": "@arch-design/arch-ui-vue",
+  "name": "@arch-ui/arch-ui-vue",
   "version": "1.0.0",
   "description": "Arch UI Components Library",
   "type": "module",

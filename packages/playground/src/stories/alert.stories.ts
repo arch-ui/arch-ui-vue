@@ -1,4 +1,4 @@
-import { AAlert, AButton } from '@arch-design/arch-ui-vue';
+import { AAlert, AButton } from '@arch-ui/arch-ui-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
 type Story = StoryObj<typeof AAlert>;

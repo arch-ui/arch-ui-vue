@@ -1,12 +1,12 @@
-# @arch-design/arch-ui-vue
+# @arch-ui/arch-ui-vue
 
 类 arco-design UI库
 
 ## 预览
 
-文档：[https://arch-desgin.github.io/arch-ui-vue/docs/](https://arch-desgin.github.io/arch-ui-vue/docs/)
+文档：[https://arch-ui.github.io/arch-ui-vue/docs/](https://arch-ui.github.io/arch-ui-vue/docs/)
 
-演练场：[https://arch-desgin.github.io/arch-ui-vue/playground](https://arch-desgin.github.io/arch-ui-vue/playground)
+演练场：[https://arch-ui.github.io/arch-ui-vue/playground](https://arch-ui.github.io/arch-ui-vue/playground)
 
 ## TODO
 
@@ -44,9 +44,9 @@
     - 工具
       - 代码检查和格式化
         - ESLint
-          - 根目录的.eslintrc.js通过extends继承了`@arch-design/arch-ui-lint-config`
+          - 根目录的.eslintrc.js通过extends继承了`@arch-ui/arch-ui-lint-config`
         - Prettier
-          - 根目录的.prettierrc.js通过extends继承了`@arch-design/arch-ui-lint-config/prettier`
+          - 根目录的.prettierrc.js通过extends继承了`@arch-ui/arch-ui-lint-config/prettier`
           - 通过拓展运算符实现了自定义配置
         - commitlint
           - 使用最基础的commit检查规则，配置在package.json中，避免过多配置文件

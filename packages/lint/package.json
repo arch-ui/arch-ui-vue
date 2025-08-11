@@ -1,5 +1,5 @@
 {
-  "name": "@arch-design/arch-ui-lint-config",
+  "name": "@arch-ui/arch-ui-lint-config",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

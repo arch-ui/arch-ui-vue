@@ -7,7 +7,7 @@ import {
   AAlert,
   ATooltip,
   ATrigger,
-} from '@arch-design/arch-ui-components';
+} from '@arch-ui/arch-ui-components';
 import type { Plugin } from 'vue';
 
 export default [

@@ -1,9 +1,9 @@
 import { describe, it, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { h } from 'vue';
-// TODO 使用 @arch-design/arch-ui-vue 时需要注意是 dev 模式，build模式无法引入
-import { ACollapse, ACollapseItem } from '@arch-design/arch-ui-vue';
-import { getPrefixCls } from '@arch-design/arch-ui-vue/_utils';
+// TODO 使用 @arch-ui/arch-ui-vue 时需要注意是 dev 模式，build模式无法引入
+import { ACollapse, ACollapseItem } from '@arch-ui/arch-ui-vue';
+import { getPrefixCls } from '@arch-ui/arch-ui-vue/_utils';
 
 const compItemPrefix = getPrefixCls('collapse-item');
 

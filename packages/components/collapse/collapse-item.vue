@@ -2,7 +2,7 @@
 import type { CollapseItemProps } from './type';
 import { computed, inject, getCurrentInstance } from 'vue';
 import { COLLAPSE_CTX_KEY } from './constants';
-import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui-vue/_utils';
+import { getPrefixCls, getPrefixPascal } from '@arch-ui/arch-ui-vue/_utils';
 import AIcon from '../icon/icon.vue';
 import transitionEvents from './transition-events';
 

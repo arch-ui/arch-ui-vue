@@ -2,7 +2,7 @@ import { pascalToKebab } from '../_utils';
 
 export function getIndexContent(comp: string) {
   const kabebComp = pascalToKebab(comp);
-  return `import { withInstall } from '@arch-design/arch-ui-vue/_utils';
+  return `import { withInstall } from '@arch-ui/arch-ui-vue/_utils';
 import _${comp} from './${kabebComp}.vue';
 
 export const A${comp} = withInstall(_${comp});
@@ -13,7 +13,7 @@ export * from './type.d';
 
 export function getStyleContent(comp: string) {
   const kebabComp = pascalToKebab(comp);
-  return `@use '@arch-design/arch-ui-vue/_style/index.scss' as *;
+  return `@use '@arch-ui/arch-ui-vue/_style/index.scss' as *;
 
 $${kebabComp}-prefix-cls: '#{$prefix}-${kebabComp}';`;
 }
@@ -21,7 +21,7 @@ $${kebabComp}-prefix-cls: '#{$prefix}-${kebabComp}';`;
 export function getComponentContent(comp: string) {
   const kebabComp = pascalToKebab(comp);
   return `<script setup lang="ts">
-import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui-vue/_utils';
+import { getPrefixCls, getPrefixPascal } from '@arch-ui/arch-ui-vue/_utils';
 
 const compName = '${kebabComp}';
 const compPrefix = getPrefixCls(compName);
@@ -52,7 +52,7 @@ export function getTypeContent(comp: string) {
 
 export function getStorybookContent(comp: string) {
   const kebabComp = pascalToKebab(`A${comp}`);
-  return `import { A${comp} } from '@arch-design/arch-ui-vue';
+  return `import { A${comp} } from '@arch-ui/arch-ui-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
 type Story = StoryObj<typeof A${comp}>;

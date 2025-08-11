@@ -1,7 +1,7 @@
 import type { Meta } from '@storybook/vue3';
-import { updateThemeToken } from '@arch-design/arch-ui-vue/_utils';
+import { updateThemeToken } from '@arch-ui/arch-ui-vue/_utils';
 import { watch } from 'vue';
-import { AButton } from '@arch-design/arch-ui-vue';
+import { AButton } from '@arch-ui/arch-ui-vue';
 
 const meta: Meta = {
   title: 'Components/Theme',

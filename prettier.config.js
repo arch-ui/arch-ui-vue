@@ -1,4 +1,4 @@
-const prettierConfig = require('@arch-design/arch-ui-lint-config/prettier');
+const prettierConfig = require('@arch-ui/arch-ui-lint-config/prettier');
 /**
  * @type {import("prettier").Config}
  */

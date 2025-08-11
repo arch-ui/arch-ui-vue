@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui-vue/_utils';
+import { getPrefixCls, getPrefixPascal } from '@arch-ui/arch-ui-vue/_utils';
 import Trigger from '../trigger/trigger.vue';
 const compName = 'tooltip';
 const compPrefix = getPrefixCls(compName);

@@ -1,4 +1,4 @@
-import { ATrigger } from '@arch-design/arch-ui-vue';
+import { ATrigger } from '@arch-ui/arch-ui-vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
 type Story = StoryObj<typeof ATrigger>;

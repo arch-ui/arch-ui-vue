@@ -5,7 +5,7 @@ import type {
   ButtonInstance,
   ButtonSlots,
 } from './type';
-import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui-vue/_utils';
+import { getPrefixCls, getPrefixPascal } from '@arch-ui/arch-ui-vue/_utils';
 import AIcon from '../icon/icon.vue';
 import { computed, inject, ref } from 'vue';
 import { BUTTON_GROUP_CTX_KEY } from './constants';

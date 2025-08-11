@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { getPrefixCls } from '@arch-design/arch-ui-vue/_utils';
+import { getPrefixCls } from '@arch-ui/arch-ui-vue/_utils';
 import { AAlert as Alert } from './index';
 import type { AlertType } from './type';
 import AIcon from '../icon/icon.vue';

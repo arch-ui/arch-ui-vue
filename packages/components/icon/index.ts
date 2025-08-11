@@ -1,4 +1,4 @@
-import { withInstall } from '@arch-design/arch-ui-vue/_utils';
+import { withInstall } from '@arch-ui/arch-ui-vue/_utils';
 import _AIcon from './icon.vue';
 
 export const AIcon = withInstall(_AIcon);

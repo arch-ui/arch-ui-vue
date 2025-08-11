@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui-vue/_utils';
+import { getPrefixCls, getPrefixPascal } from '@arch-ui/arch-ui-vue/_utils';
 import type { AlertProps, AlertEmits, AlertSlots, AlertInstance } from './type';
 import AIcon from '../icon/icon.vue';
 import { ref, computed, defineExpose, onMounted } from 'vue';

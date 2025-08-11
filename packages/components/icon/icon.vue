@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getPrefixCls, getPrefixPascal } from '@arch-design/arch-ui-vue/_utils';
+import { getPrefixCls, getPrefixPascal } from '@arch-ui/arch-ui-vue/_utils';
 import type { IconProps } from './type.d';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { omit } from 'lodash-es';
